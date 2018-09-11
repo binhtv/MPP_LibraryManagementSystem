@@ -7,23 +7,19 @@ import java.io.Serializable;
  * @author binhtran
  *
  */
-public class BookCopy implements Serializable {
+public class BookCopy extends PaperItemCopy implements Serializable {
 
 	/**
 	 * 
 	 */
 	private static final long serialVersionUID = -2899569520830018307L;
-	private int copyID;
 	
-	public BookCopy(int copy) {
-		copyID = copy;
+	public BookCopy(Book book, int copy) {
+		super(book, copy);
 	}
-	
-	public int getCopyID() {
-		return copyID;
-	}
-	
-	public void setCopyID(int copyID) {
-		this.copyID = copyID;
+
+	@Override
+	public Book getPaperItem() {
+		return (Book) this.paperItem;
 	}
 }

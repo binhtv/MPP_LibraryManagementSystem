@@ -18,37 +18,33 @@ public class CheckoutEntry implements Serializable {
 	private int id;
 	private LocalDate checkoutDate;
 	private LocalDate dueDate;
-	private BookCopy bookCopy;
+	private PaperItemCopy paperItemCopy;
+	
+	public CheckoutEntry(int id, LocalDate checkoutDate, PaperItemCopy bc) throws Exception {
+		if(bc.getCe() != null) {
+			throw new Exception("This item is borrowed.");
+		}
+		
+		this.id = id;
+		this.checkoutDate = checkoutDate;
+		this.dueDate = checkoutDate.plusDays(bc.getPaperItem().getBorrowDay());
+		this.paperItemCopy = bc;
+		this.paperItemCopy.setCe(this);
+	}
 	
 	public int getId() {
 		return id;
-	}
-	
-	public void setId(int id) {
-		this.id = id;
 	}
 
 	public LocalDate getCheckoutDate() {
 		return checkoutDate;
 	}
 
-	public void setCheckoutDate(LocalDate checkoutDate) {
-		this.checkoutDate = checkoutDate;
-	}
-
 	public LocalDate getDueDate() {
 		return dueDate;
 	}
 
-	public void setDueDate(LocalDate dueDate) {
-		this.dueDate = dueDate;
-	}
-
-	public BookCopy getBookCopy() {
-		return bookCopy;
-	}
-
-	public void setBookCopy(BookCopy bookCopy) {
-		this.bookCopy = bookCopy;
+	public PaperItemCopy getBookCopy() {
+		return paperItemCopy;
 	}
 }

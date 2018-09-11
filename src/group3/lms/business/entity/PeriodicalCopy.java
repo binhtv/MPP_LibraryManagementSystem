@@ -7,23 +7,19 @@ import java.io.Serializable;
  * @author binhtran
  *
  */
-public class PeriodicalCopy implements Serializable {
+public class PeriodicalCopy extends PaperItemCopy implements Serializable {
 
 	/**
 	 * 
 	 */
 	private static final long serialVersionUID = -2899569520830018307L;
-	private int copyID;
 	
-	public PeriodicalCopy(int copy) {
-		copyID = copy;
+	public PeriodicalCopy(Periodical p, int copy) {
+		super(p, copy);
 	}
-	
-	public int getCopyID() {
-		return copyID;
-	}
-	
-	public void setCopyID(int copyID) {
-		this.copyID = copyID;
+
+	@Override
+	public Periodical getPaperItem() {
+		return (Periodical) paperItem;
 	}
 }

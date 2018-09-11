@@ -1,5 +1,6 @@
 package group3.lms.business.entity;
 
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -8,7 +9,6 @@ import java.util.List;
  *
  */
 public class Book extends PaperItem {
-
 	/**
 	 * 
 	 */
@@ -16,6 +16,14 @@ public class Book extends PaperItem {
 
 	private String ISBN;
 	private List<Author> authors;
+	private List<BookCopy> copies;
+	
+	public Book(String ISBN, String title, boolean available, int borrowDay) {
+		super(title, available, borrowDay);
+		this.ISBN = ISBN;
+		this.authors = new ArrayList<>();
+		this.copies = new ArrayList<>();
+	}
 	
 	public String getISBN() {
 		return ISBN;
@@ -29,7 +37,15 @@ public class Book extends PaperItem {
 		return authors;
 	}
 
-	public void setAuthors(List<Author> authors) {
-		this.authors = authors;
+	public void addAuthor(Author author) {
+		this.authors.add(author);
+	}
+
+	public List<BookCopy> getCopies() {
+		return copies;
+	}
+
+	public void addCopy(BookCopy copy) {
+		this.copies.add(copy);
 	}
 }

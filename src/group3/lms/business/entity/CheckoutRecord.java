@@ -1,6 +1,7 @@
 package group3.lms.business.entity;
 
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -17,6 +18,12 @@ public class CheckoutRecord implements Serializable {
 	private Member member;
 	private List<CheckoutEntry> checkoutEntries;
 	
+	CheckoutRecord(Member member) {
+		this.member = member;
+		this.member.addRecord(this);
+		this.checkoutEntries = new ArrayList<>();
+	}
+	
 	public Member getMember() {
 		return member;
 	}
@@ -29,7 +36,7 @@ public class CheckoutRecord implements Serializable {
 		return checkoutEntries;
 	}
 
-	public void setCheckoutEntries(List<CheckoutEntry> checkoutEntries) {
-		this.checkoutEntries = checkoutEntries;
+	public void addCheckoutEntry(CheckoutEntry entry) {
+		this.checkoutEntries.add(entry);
 	}
 }

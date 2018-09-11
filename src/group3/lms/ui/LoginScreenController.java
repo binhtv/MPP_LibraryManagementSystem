@@ -8,9 +8,8 @@ import java.io.ObjectInputStream;
 
 import javax.swing.JOptionPane;
 
+import group3.lms.business.entity.User;
 import group3.lms.common.Messages;
-import group3.lms.datastorage.JavaObjectInputOutputStreamExample;
-import group3.lms.datastorage.User;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Alert;
@@ -20,7 +19,6 @@ import javafx.scene.control.ButtonType;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.AnchorPane;
-import javafx.stage.Stage;
 
 public class LoginScreenController {
 	@FXML
@@ -48,7 +46,7 @@ public void btnLoginClickMe(ActionEvent event) {
 
 		//Read from the stored file
 		FileInputStream fileInputStream = new FileInputStream(new File(
-				JavaObjectInputOutputStreamExample.OUTPUT_DIR));
+				group3.lms.business.entity.JavaObjectInputOutputStreamExample.MEMBER_DIR));
 		ObjectInputStream input = new ObjectInputStream(fileInputStream);
 		User user2 = (User) input.readObject();
 		input.close();

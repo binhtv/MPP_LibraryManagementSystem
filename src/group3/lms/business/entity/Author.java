@@ -18,8 +18,10 @@ public class Author extends Person {
 	private Address address;
 	private List<Book> books;
 	
-	public Author(String first, String last, String p) {
+	public Author(String first, String last, String p, String credential, String shortBio) {
 		super(first, last, p);
+		this.credential = credential;
+		this.shortBio = shortBio;
 	}
 
 	public String getCredential() {
