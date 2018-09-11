@@ -1,7 +1,6 @@
 package group3.lms.dataaccess;
 
-import java.sql.ResultSet;
-import java.sql.SQLException;
+import java.io.Serializable;
 import java.util.List;
 
 /**
@@ -10,7 +9,9 @@ import java.util.List;
  *
  */
 public interface Dao {
-	public String getSql();
-	public void unpackResultSet(ResultSet rs) throws SQLException;
-	public List<?> getResults();
+	public String getName();
+	
+	public void unpackResultSet(Serializable rs);
+	
+	public List<?> getAll();
 }

@@ -1,11 +1,18 @@
 package group3.lms.business.entity;
 
+import java.io.Serializable;
+
 /**
  * 
  * @author binhtran
  *
  */
-public class Address {
+public class Address implements Serializable {
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = -5752364404359558627L;
+	
 	private String street, city, state, zip;
 
 	public Address(String str, String c, String st, String z) {

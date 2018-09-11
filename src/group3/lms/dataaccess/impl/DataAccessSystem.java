@@ -1,10 +1,12 @@
 package group3.lms.dataaccess.impl;
 
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.ResultSet;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.IOException;
+import java.io.ObjectInputStream;
+import java.io.Serializable;
 import java.sql.SQLException;
-import java.sql.Statement;
 
 import group3.lms.dataaccess.Dao;
 import group3.lms.dataaccess.DataAccess;
@@ -17,26 +19,10 @@ import group3.lms.dataaccess.DataAccess;
 public class DataAccessSystem implements DataAccess {
 	//package level access
 	DataAccessSystem() {}
-	public void read(Dao dao) throws SQLException {
-		String query = dao.getSql();
-		Connection con = null;
-		try {
-			con = (new ConnectManager()).getConnection();
-			
-			Statement stmt = con.createStatement();
-			
-			System.out.println("the query: "+ query);
-			ResultSet rs = stmt.executeQuery(query);
-			dao.unpackResultSet(rs);
-		} finally {
-			if(con != null) {
-				try {
-				 con.close();
-				} catch(Exception e) {
-					//do nothing
-				}
-			}
-		}
+	public void read(Dao dao) {
+		String fileName = dao.getName();
+		ConnectManager con = new ConnectManager();
+		dao.unpackResultSet((Serializable)con.getData(fileName));
 	}
 	
 	public void write(Dao dao) throws SQLException {
@@ -46,23 +32,28 @@ public class DataAccessSystem implements DataAccess {
 	
 	
 	public static class ConnectManager {
+		private static final String OUTPUT_DIR = System.getProperty("user.dir") 
+				+ "/src/group3/lms/dataaccess/storage/%.txt";
 		
-		private static final String DB_URL 
-			= "jdbc:derby://localhost:1527/MPP_DB;create=true";
-		private static final String USERNAME = "app";
-		private static final String PASSWORD = "app";
-		private static Connection conn = null;
-		public Connection getConnection() throws SQLException {
-			if(conn == null) {	
-				conn = DriverManager.getConnection(DB_URL, USERNAME, PASSWORD);
-				System.out.println("Got connection...");
-			}
-			System.out.println("Is conn null? " + (conn==null));
-			return conn;
-		}
-		
-		
-			
-	}
+		public Object getData(String fileName) {
+			Object data = null;
+			try {
+				//Read from the stored file
+				FileInputStream fileInputStream = new FileInputStream(new File(
+						OUTPUT_DIR.replace("%", fileName)));
+				ObjectInputStream input = new ObjectInputStream(fileInputStream);
+				data = input.readObject();
+				input.close();
 
+			} catch (FileNotFoundException e) {
+				e.printStackTrace();
+			} catch (IOException e) {
+				e.printStackTrace();
+			} catch (ClassNotFoundException e) {
+				e.printStackTrace();
+			}
+			
+			return data;
+		}
+	}
 }
