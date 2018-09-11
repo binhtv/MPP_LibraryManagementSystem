@@ -3,6 +3,8 @@ package group3.lms.dataaccess;
 import java.io.Serializable;
 import java.util.List;
 
+import group3.lms.business.entity.User;
+
 /**
  * 
  * @author binhtran
