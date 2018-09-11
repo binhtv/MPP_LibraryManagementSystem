@@ -1,5 +1,6 @@
 package group3.lms.ui;
 
+import java.util.List;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
@@ -8,9 +9,9 @@ import java.io.ObjectInputStream;
 
 import javax.swing.JOptionPane;
 
+import group3.lms.business.entity.User;
 import group3.lms.common.Messages;
-import group3.lms.datastorage.JavaObjectInputOutputStreamExample;
-import group3.lms.datastorage.User;
+import group3.lms.dataaccess.storage.JavaObjectInputOutputStreamExample;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Alert;
@@ -20,7 +21,6 @@ import javafx.scene.control.ButtonType;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.AnchorPane;
-import javafx.stage.Stage;
 
 public class LoginScreenController {
 	@FXML
@@ -33,6 +33,8 @@ public class LoginScreenController {
 	private Button btnLogin;
 	
 public void btnLoginClickMe(ActionEvent event) {
+	txtName.setText("binhtv");
+	txtPass.setText("3928#@$3$");
 	if(txtName.getText() == null || txtName.getText().trim().equals("")) {
 //		JOptionPane.showMessageDialog((Stage)ap.getScene().getWindow(), Messages.INPUT_USER_NAME.getValue());
 		new Alert(AlertType.ERROR,Messages.INPUT_USER_NAME.getValue(),ButtonType.OK).show();
@@ -50,14 +52,16 @@ public void btnLoginClickMe(ActionEvent event) {
 		FileInputStream fileInputStream = new FileInputStream(new File(
 				JavaObjectInputOutputStreamExample.OUTPUT_DIR));
 		ObjectInputStream input = new ObjectInputStream(fileInputStream);
-		User user2 = (User) input.readObject();
+		List<User> user2 = (List<User>) input.readObject();
 		input.close();
-		if (!user2.getFirstName().equals(txtName.getText())
-				|| !user2.getLastName().equals(txtPass.getText())) {
-			JOptionPane.showMessageDialog(null, Messages.INCORRECT_USER_PASS.getValue());
-			txtName.requestFocus();
-			return;
+		for (User u: user2) {
+			if (u.getUserName().equals(txtName.getText())
+				&& u.getPassword().equals(txtPass.getText())) {
+				return;
+			}			
 		}
+		JOptionPane.showMessageDialog(null, Messages.INCORRECT_USER_PASS.getValue());
+		txtName.requestFocus();
 
 	} catch (FileNotFoundException e) {
 		e.printStackTrace();
