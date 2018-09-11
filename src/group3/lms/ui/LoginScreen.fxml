@@ -21,7 +21,7 @@
 		<PasswordField fx:id="txtPass" layoutX="385.0"
 			layoutY="168.0" onAction="#btnLoginClickMe" prefHeight="30.0"
 			prefWidth="198.0" />
-		<Button fx:id="btnLogin" layoutX="357.0" layoutY="232.0"
+		<Button fx:id="btnLogin" layoutX="357.0" layoutY="232.0" defaultButton="true"
 			mnemonicParsing="false" onAction="#btnLoginClickMe" prefHeight="36.0"
 			prefWidth="226.0" text="Login">
 			<font>
