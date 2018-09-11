@@ -11,7 +11,7 @@
    <children>
       <ImageView fitHeight="615.0" fitWidth="791.0">
          <image>
-            <Image url="@../../../../../../Desktop/image.png" />
+            <Image url="@../resources/AddMember.png" />
          </image>
       </ImageView>
       <TextField fx:id="txtMemberID" layoutX="152.0" layoutY="91.0" prefHeight="28.0" prefWidth="149.0" />
