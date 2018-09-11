@@ -20,6 +20,16 @@ public class UserDao implements Dao {
 		return TABLE_NAME;
 	}
 	
+	public User getUser(String userName) {
+		for(User u : users) {
+			if(userName.equals(u.getUserName())) {
+				return u;
+			}
+		}
+		
+		return null;
+	}
+	
 	@Override
 	public List<?> getAll() {
 		return users;
