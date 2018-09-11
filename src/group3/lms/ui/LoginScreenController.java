@@ -59,7 +59,7 @@ public class LoginScreenController {
 		UserDao dao = new UserDao();
 		DataAccess da = DataAccessFactory.getDataAccess();
 		da.read(dao);
-		User u = dao.getUser(txtName.getText());
+		User u = dao.getUser(txtName.getText().toLowerCase());
 		if (u == null || !txtPass.getText().equals(u.getPassword())) {
 			Common.ShowMessage(AlertType.ERROR, Messages.INCORRECT_USER_PASS.getValue());
 			txtName.requestFocus();
