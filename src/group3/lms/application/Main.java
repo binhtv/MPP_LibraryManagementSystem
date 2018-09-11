@@ -17,7 +17,7 @@ public class Main extends Application {
 		try {
 			Parent root =  FXMLLoader.load(getClass().getResource("/group3/lms/ui/LoginScreen.fxml"));
 			Scene scene = new Scene(root,639,316);
-			scene.getStylesheets().add(getClass().getResource("application.css").toExternalForm());
+			scene.getStylesheets().add(getClass().getResource("/group3/lms/resources/application.css").toExternalForm());
 			primaryStage.setScene(scene);
 			primaryStage.setResizable(false);
 			primaryStage.show();
