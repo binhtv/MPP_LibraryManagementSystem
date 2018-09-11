@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.text.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane prefHeight="295.0" prefWidth="496.0"
+	xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1"
+	fx:controller="group3.lms.ui.MainScreenController">
+	<children>
+		<ImageView fitHeight="314.0" fitWidth="496.0"
+			pickOnBounds="true" preserveRatio="true">
+			<image>
+				<Image url="@../resources/main.jpg" />
+			</image>
+		</ImageView>
+		<Button fx:id="btnNewMem" layoutX="40.0" layoutY="78.0"
+			mnemonicParsing="false" onAction="#btnNewMemClickMe"
+			prefHeight="54.0" prefWidth="204.0" text="New Member" defaultButton="true">
+			<font>
+				<Font size="24.0" />
+			</font>
+		</Button>
+		<Button fx:id="btnAddBkCopy" layoutX="266.0" layoutY="78.0"
+			mnemonicParsing="false" onAction="#btnAddBkCopyClickMe"
+			prefHeight="54.0" prefWidth="204.0" text="Add Book Copy">
+			<font>
+				<Font size="24.0" />
+			</font>
+		</Button>
+		<Button fx:id="btnCheckoutBk" layoutX="40.0" layoutY="183.0"
+			mnemonicParsing="false" onAction="#btnCheckoutBkClickMe"
+			prefHeight="54.0" prefWidth="204.0" text="Checkout Book">
+			<font>
+				<Font size="24.0" />
+			</font>
+		</Button>
+		<Button fx:id="btnAddBk" layoutX="266.0" layoutY="183.0"
+			mnemonicParsing="false" onAction="#btnAddBkClickMe" prefHeight="54.0"
+			prefWidth="204.0" text="Add Book">
+			<font>
+				<Font size="24.0" />
+			</font>
+		</Button>
+	</children>
+</AnchorPane>

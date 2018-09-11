@@ -15,11 +15,8 @@ import javafx.scene.control.Button;
 import javafx.scene.control.ButtonType;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
-import javafx.scene.layout.AnchorPane;
 
 public class LoginScreenController {
-	@FXML
-	private AnchorPane ap;
 	@FXML
 	private TextField txtName;
 	@FXML
