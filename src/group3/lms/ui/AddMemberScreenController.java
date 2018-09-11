@@ -2,16 +2,14 @@ package group3.lms.ui;
 
 import java.util.Optional;
 
-import javax.swing.JOptionPane;
-
 import group3.lms.common.Common;
 import group3.lms.common.Messages;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.Button;
 import javafx.scene.control.ButtonType;
 import javafx.scene.control.TextField;
-import javafx.scene.control.Alert.AlertType;
 
 public class AddMemberScreenController {
 	@FXML

@@ -3,8 +3,10 @@ package group3.lms.dataaccess.impl;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
 import java.io.Serializable;
 import java.sql.SQLException;
 
@@ -25,8 +27,9 @@ public class DataAccessSystem implements DataAccess {
 		dao.unpackResultSet((Serializable)con.getData(fileName));
 	}
 	
-	public void write(Dao dao) throws SQLException {
-		//same idea
+	public boolean write(Dao dao) throws SQLException {
+		ConnectManager con = new ConnectManager();
+		return con.writeData(dao.getAll(), dao.getName());
 	}
 	
 	
@@ -54,6 +57,24 @@ public class DataAccessSystem implements DataAccess {
 			}
 			
 			return data;
+		}
+		
+		public boolean writeData(Object obj, String fileName) {
+			try {
+				FileOutputStream fos = new FileOutputStream(new File(
+						OUTPUT_DIR.replace("%", fileName)));
+				ObjectOutputStream ous = new ObjectOutputStream(fos);
+				ous.writeObject(obj);
+				ous.close();
+				
+				return true;
+			} catch (FileNotFoundException e) {
+				e.printStackTrace();
+			} catch (IOException e) {
+				e.printStackTrace();
+			}
+			
+			return false;
 		}
 	}
 }

@@ -8,13 +8,16 @@ import group3.lms.common.Common;
 import group3.lms.common.Messages;
 import group3.lms.dataaccess.DataAccess;
 import group3.lms.dataaccess.impl.DataAccessFactory;
+import group3.lms.ui.scene.SceneFactory;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.scene.Node;
 import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.Button;
 import javafx.scene.control.ButtonType;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
+import javafx.stage.Stage;
 
 public class LoginScreenController {
 	@FXML
@@ -60,7 +63,12 @@ public class LoginScreenController {
 		if (u == null || !txtPass.getText().equals(u.getPassword())) {
 			Common.ShowMessage(AlertType.ERROR, Messages.INCORRECT_USER_PASS.getValue());
 			txtName.requestFocus();
+			return;
 		}
+		
+		Stage primaryStage = (Stage) ((Node)event.getSource()).getScene().getWindow();
+		primaryStage.setTitle(Messages.TITLE_MAIN_SCREEN.getValue());
+		primaryStage.setScene(SceneFactory.createMainScreen());
 	}
 
 }
