@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.image.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.layout.AnchorPane?>
+
+
+<AnchorPane prefHeight="316.0" prefWidth="639.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8" fx:controller="group3.lms.ui.LoginScreenController">
+   <children>
+      <ImageView fitHeight="316.0" fitWidth="638.0">
+         <image>
+            <Image url="@images/login.jpg" />
+         </image>
+      </ImageView>
+   </children>
+</AnchorPane>
