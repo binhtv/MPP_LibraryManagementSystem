@@ -27,6 +27,11 @@ public class LoginScreenController {
 	@FXML
 	private Button btnLogin;
 
+	public void txtNameEnter(ActionEvent event) {
+		txtPass.requestFocus();
+		return;
+	}
+
 	public void btnLoginClickMe(ActionEvent event) {
 		if (txtName.getText() == null || txtName.getText().trim().equals("")) {
 //		JOptionPane.showMessageDialog((Stage)ap.getScene().getWindow(), Messages.INPUT_USER_NAME.getValue());
