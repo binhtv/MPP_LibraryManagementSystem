@@ -40,15 +40,15 @@ public class LoginScreenController {
 			return;
 		}
 
-			// Read from the stored file
-			UserDao dao = new UserDao();
-			DataAccess da = DataAccessFactory.getDataAccess();
-			da.read(dao);
-			User u = dao.getUser(txtName.getText());
-			if (u == null || !txtPass.getText().equals(u.getPassword())) {
-				JOptionPane.showMessageDialog(null, Messages.INCORRECT_USER_PASS.getValue());
-				txtName.requestFocus();
-			}
+		// Read from the stored file
+		UserDao dao = new UserDao();
+		DataAccess da = DataAccessFactory.getDataAccess();
+		da.read(dao);
+		User u = dao.getUser(txtName.getText());
+		if (u == null || !txtPass.getText().equals(u.getPassword())) {
+			JOptionPane.showMessageDialog(null, Messages.INCORRECT_USER_PASS.getValue());
+			txtName.requestFocus();
+		}
 	}
 
 }
