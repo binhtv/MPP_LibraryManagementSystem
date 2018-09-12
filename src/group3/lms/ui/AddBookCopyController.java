@@ -1,6 +1,5 @@
 package group3.lms.ui;
 
-import java.sql.SQLException;
 import java.util.Optional;
 
 import group3.lms.business.BookDao;
@@ -73,7 +72,7 @@ public class AddBookCopyController {
 		try {
 			da.write(dao);
 			Common.showMessage(AlertType.INFORMATION, Messages.COMMON_SUCCESS_MESSAGE.getValue());
-		} catch (SQLException e) {
+		} catch (Exception e) {
 			e.printStackTrace();
 			Common.showMessage(AlertType.ERROR, Messages.COMMON_INTERNAL_ERROR.getValue());
 		}

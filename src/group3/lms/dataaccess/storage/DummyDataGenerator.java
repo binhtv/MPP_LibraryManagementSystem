@@ -1,4 +1,4 @@
-package group3.lms.business.entity;
+package group3.lms.dataaccess.storage;
 
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
@@ -7,6 +7,19 @@ import java.io.ObjectOutputStream;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
+
+import group3.lms.business.entity.Address;
+import group3.lms.business.entity.Administrator;
+import group3.lms.business.entity.Author;
+import group3.lms.business.entity.Book;
+import group3.lms.business.entity.BookCopy;
+import group3.lms.business.entity.CheckoutEntry;
+import group3.lms.business.entity.CheckoutRecord;
+import group3.lms.business.entity.Librarian;
+import group3.lms.business.entity.Member;
+import group3.lms.business.entity.Periodical;
+import group3.lms.business.entity.PeriodicalCopy;
+import group3.lms.business.entity.User;
 
 public class DummyDataGenerator {
 

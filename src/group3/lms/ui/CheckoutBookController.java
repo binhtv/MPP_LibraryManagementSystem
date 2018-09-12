@@ -1,6 +1,5 @@
 package group3.lms.ui;
 
-import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
@@ -125,7 +124,7 @@ public class CheckoutBookController {
 		Book b = bookDao.getBookByISBN(txtID.getText().toLowerCase());
 		Periodical p = null;
 		if (b == null) {
-			p = periodicalDao.getBookById(txtID.getText().toLowerCase());
+			p = periodicalDao.getPeriodicalById(txtID.getText().toLowerCase());
 		}
 
 		if (b == null && p == null) {
@@ -199,7 +198,7 @@ public class CheckoutBookController {
 			String message = String.format(Messages.CHECKOUT_BOOK_SUCCESS.getValue(), m.getFirstName(), m.getMemberId(), items.size(), items);
 			Common.showMessage(AlertType.INFORMATION, message);
 			refreshData();
-		} catch (SQLException e) {
+		} catch (Exception e) {
 			Common.showMessage(AlertType.ERROR, Messages.COMMON_INTERNAL_ERROR.getValue());
 			e.printStackTrace();
 		}

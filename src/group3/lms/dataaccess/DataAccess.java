@@ -1,7 +1,5 @@
 package group3.lms.dataaccess;
 
-import java.sql.SQLException;
-
 /**
  * 
  * @author binhtran
@@ -9,6 +7,6 @@ import java.sql.SQLException;
  */
 public interface DataAccess {
 	void read(Dao dao);
-	boolean write(Dao dao) throws SQLException;
+	boolean write(Dao dao);
 	
 }

@@ -11,7 +11,7 @@ import java.util.List;
 public interface Dao {
 	public String getName();
 	
-	public void unpackResultSet(Serializable rs);
+	public void unpackData(Serializable rs);
 	
 	public List<?> getAll();
 }
