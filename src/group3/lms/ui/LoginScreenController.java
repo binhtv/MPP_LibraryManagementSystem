@@ -29,13 +29,7 @@ public class LoginScreenController {
 	
 	public void txtNameEnter(ActionEvent event) {
 		if (txtName.getText() == null || txtName.getText().trim().equals("")) {
-			Optional<ButtonType> result =
-					Common.showMessage(AlertType.CONFIRMATION, Messages.INPUT_USER_NAME.getValue());
-			if (result.get() == ButtonType.OK) {
-				Common.showMessage(AlertType.INFORMATION, "OK");
-			} else {
-				Common.showMessage(AlertType.INFORMATION, "NOT OK");
-			}
+			Common.showMessage(AlertType.ERROR, Messages.INPUT_USER_NAME.getValue());
 			txtName.requestFocus();
 			return;
 		}
