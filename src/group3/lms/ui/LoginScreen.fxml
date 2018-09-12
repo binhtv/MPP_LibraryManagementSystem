@@ -7,25 +7,18 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane prefHeight="316.0" prefWidth="639.0"
-	xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1"
-	fx:controller="group3.lms.ui.LoginScreenController">
+<AnchorPane prefHeight="316.0" prefWidth="639.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="group3.lms.ui.LoginScreenController">
 	<children>
 		<ImageView fitHeight="316.0" fitWidth="638.0">
 			<image>
 				<Image url="@../resources/login.jpg" />
 			</image>
 		</ImageView>
-		<TextField fx:id="txtName" layoutX="385.0" layoutY="122.0"
-			onAction="#txtNameEnter" prefHeight="30.0" prefWidth="198.0" />
-		<PasswordField fx:id="txtPass" layoutX="385.0"
-			layoutY="168.0" onAction="#btnLoginClickMe" prefHeight="30.0"
-			prefWidth="198.0" />
-		<Button fx:id="btnLogin" layoutX="357.0" layoutY="232.0" defaultButton="true"
-			mnemonicParsing="false" onAction="#btnLoginClickMe" prefHeight="36.0"
-			prefWidth="226.0" text="Login">
+		<TextField fx:id="txtName" layoutX="385.0" layoutY="121.0" onAction="#txtNameEnter" prefHeight="32.0" prefWidth="198.0" />
+		<PasswordField fx:id="txtPass" layoutX="385.0" layoutY="168.0" onAction="#btnLoginClickMe" prefHeight="32.0" prefWidth="198.0" />
+		<Button fx:id="btnLogin" defaultButton="true" layoutX="357.0" layoutY="232.0" mnemonicParsing="false" onAction="#btnLoginClickMe" prefHeight="36.0" prefWidth="226.0" text="Login">
 			<font>
-				<Font size="24.0" />
+				<Font name="System Bold" size="24.0" />
 			</font>
 		</Button>
 	</children>

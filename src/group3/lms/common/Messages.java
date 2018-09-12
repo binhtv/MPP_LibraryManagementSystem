@@ -4,10 +4,10 @@ public enum Messages {
 	COMMON_INTERNAL_ERROR("Unknow error occurred, please try again."),
 	COMMON_SUCCESS_MESSAGE("Your changes have been saved successfully."),
 	//INPUT MESSAGES
-	INPUT_ISBN("Please input ISBN of book!"),
-	INPUT_NUM_OF_COPY("Please input number of copy!"),
-	INPUT_USER_NAME("Please input user name!"),
-	INPUT_PASSWORD("Please input password!"),
+	INPUT_ISBN("ISBN of book is not allowed empty!"),
+	INPUT_NUM_OF_COPY("Number of copy is not allowed empty!"),
+	INPUT_USER_NAME("User name is not allowed empty!"),
+	INPUT_PASSWORD("Password is not allowed empty!"),
 	INPUT_CREATENEWMEMBER("Do you want to create a new member?"),
 	INPUT_NOT_NUMBER("Please input a number!"),	
 	

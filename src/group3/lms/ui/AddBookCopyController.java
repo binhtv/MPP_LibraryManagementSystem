@@ -1,20 +1,25 @@
 package group3.lms.ui;
 
 import java.sql.SQLException;
+import java.util.Optional;
 
 import group3.lms.business.BookDao;
 import group3.lms.business.entity.Book;
 import group3.lms.business.entity.BookCopy;
+import group3.lms.business.entity.User;
 import group3.lms.common.Common;
 import group3.lms.common.Messages;
 import group3.lms.dataaccess.DataAccess;
 import group3.lms.dataaccess.impl.DataAccessFactory;
+import group3.lms.ui.scene.SceneFactory;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.scene.Node;
 import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.Button;
+import javafx.scene.control.ButtonType;
 import javafx.scene.control.TextField;
-import javafx.scene.input.KeyEvent;
+import javafx.stage.Stage;
 
 public class AddBookCopyController {
 	@FXML
@@ -23,6 +28,8 @@ public class AddBookCopyController {
 	private TextField txtNumOfCopy;
 	@FXML
 	private Button btnAdd;
+	@FXML
+	private Button btnCancel;
 	private BookDao dao = new BookDao();
 	private DataAccess da = null;
 
@@ -30,10 +37,6 @@ public class AddBookCopyController {
 		// Read from the stored file
 		da = DataAccessFactory.getDataAccess();
 		da.read(dao);
-//		txtNumOfCopy.setOnKeyTyped(event ->{
-//	        int maxCharacters = 5;
-//	        if(txtNumOfCopy.getText().length() > maxCharacters) event.consume();
-//	    });
 	}
 
 	public void txtISBNEnter(ActionEvent event) {
@@ -43,24 +46,18 @@ public class AddBookCopyController {
 		txtNumOfCopy.requestFocus();
 	}
 
-	public void txtISBNOnKeyTyped(KeyEvent event) {
-		int maxCharacters = 10;
-//		txtISBN.setText(txtISBN.getText().trim());
-		if (txtISBN.getText().length() > maxCharacters) {
-			event.consume();
-			return;
+	public void clickCancel(ActionEvent event) {
+		Optional<ButtonType> result = Common.showMessage(AlertType.CONFIRMATION, Messages.NEW_MEMBER_CANCEL.getValue());
+		if (result.get() == ButtonType.OK) {
+			Stage primaryStage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+			primaryStage.setTitle(Messages.TITLE_MAIN_SCREEN.getValue());
+			Object u = primaryStage.getUserData();
+			if (u != null) {
+				primaryStage.setScene(SceneFactory.createMainScreen(((User) u).getRoles()));
+			} else {
+				primaryStage.setScene(SceneFactory.createLoginScreen());
+			}
 		}
-		return;
-	}
-
-	public void txtNumCopOnKeyTyped(KeyEvent event) {
-		int maxCharacters = 4;
-//		txtNumOfCopy.setText(txtNumOfCopy.getText().trim());
-		if (txtNumOfCopy.getText().length() > maxCharacters) {
-			event.consume();
-			return;
-		}
-		return;
 	}
 
 	public void btnAddClickMe(ActionEvent event) {
@@ -70,9 +67,8 @@ public class AddBookCopyController {
 		if (bk == null)
 			return;
 
-		bk.clearCopy();
 		for (int i = 1; i <= Integer.valueOf(txtNumOfCopy.getText()); i++) {
-			bk.addCopy(new BookCopy(bk, i));
+			bk.addCopy(new BookCopy(bk, bk.getCopies().size() + i));
 		}
 		try {
 			da.write(dao);

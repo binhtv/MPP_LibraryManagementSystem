@@ -83,7 +83,7 @@ public final class SceneFactory {
 		Scene scene = null;
 		try {
 			Parent root = FXMLLoader.load(SceneFactory.class.getResource(ADD_BOOK_COPY_SCREEN_FILE));
-			scene = new Scene(root, 590, 350);
+			scene = new Scene(root, 435, 235);
 		} catch (IOException e) {
 			e.printStackTrace();
 		}

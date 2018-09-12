@@ -1,7 +1,5 @@
 package group3.lms.ui;
 
-import java.util.Optional;
-
 import group3.lms.business.UserDao;
 import group3.lms.business.entity.User;
 import group3.lms.common.Common;
@@ -14,7 +12,6 @@ import javafx.fxml.FXML;
 import javafx.scene.Node;
 import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.Button;
-import javafx.scene.control.ButtonType;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
@@ -26,16 +23,10 @@ public class LoginScreenController {
 	private PasswordField txtPass;
 	@FXML
 	private Button btnLogin;
-	
+
 	public void txtNameEnter(ActionEvent event) {
 		if (txtName.getText() == null || txtName.getText().trim().equals("")) {
-			Optional<ButtonType> result =
-					Common.showMessage(AlertType.CONFIRMATION, Messages.INPUT_USER_NAME.getValue());
-			if (result.get() == ButtonType.OK) {
-				Common.showMessage(AlertType.INFORMATION, "OK");
-			} else {
-				Common.showMessage(AlertType.INFORMATION, "NOT OK");
-			}
+			Common.showMessage(AlertType.ERROR, Messages.INPUT_USER_NAME.getValue());
 			txtName.requestFocus();
 			return;
 		}
@@ -63,8 +54,8 @@ public class LoginScreenController {
 			txtName.requestFocus();
 			return;
 		}
-		
-		Stage primaryStage = (Stage) ((Node)event.getSource()).getScene().getWindow();
+
+		Stage primaryStage = (Stage) ((Node) event.getSource()).getScene().getWindow();
 		primaryStage.setTitle(Messages.TITLE_MAIN_SCREEN.getValue());
 		primaryStage.setScene(SceneFactory.createMainScreen(u.getRoles()));
 		primaryStage.setUserData(u);

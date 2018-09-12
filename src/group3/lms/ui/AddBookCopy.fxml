@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.*?>
 <?import javafx.scene.text.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.image.*?>
@@ -7,19 +8,27 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane prefHeight="348.0" prefWidth="598.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="group3.lms.ui.AddBookCopyController">
+<AnchorPane prefHeight="257.0" prefWidth="444.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="group3.lms.ui.AddBookCopyController">
 	<children>
-		<ImageView fitHeight="361.0" fitWidth="598.0" pickOnBounds="true" preserveRatio="true">
+		<ImageView fitHeight="262.0" fitWidth="445.0" pickOnBounds="true" preserveRatio="true">
 			<image>
 				<Image url="@../resources/AddBookCopy.png" />
 			</image>
 		</ImageView>
-		<TextField fx:id="txtISBN" layoutX="231.0" layoutY="98.0" onAction="#txtISBNEnter" prefHeight="38.0" prefWidth="304.0" />
-		<TextField fx:id="txtNumOfCopy" layoutX="231.0" layoutY="157.0" prefHeight="38.0" prefWidth="304.0" />
-		<Button fx:id="btnAdd" layoutX="231.0" layoutY="217.0" mnemonicParsing="false" onAction="#btnAddClickMe" prefHeight="53.0" prefWidth="173.0" text="Add">
-			<font>
-				<Font size="24.0" />
-			</font>
-		</Button>
+		<TextField fx:id="txtISBN" layoutX="168.0" layoutY="75.0" onAction="#txtISBNEnter" prefHeight="25.0" prefWidth="230.0" />
+		<TextField fx:id="txtNumOfCopy" layoutX="168.0" layoutY="119.0" prefHeight="25.0" prefWidth="230.0" />
+      <Button fx:id="btnAdd" layoutX="168.0" layoutY="162.0" mnemonicParsing="false" onAction="#btnAddClickMe" prefHeight="38.0" prefWidth="106.0" text="Add">
+         <font>
+            <Font name="System Bold" size="14.0" />
+         </font>
+      </Button>
+      <Button fx:id="btnCancel" cancelButton="true" layoutX="292.0" layoutY="162.0" mnemonicParsing="false" onAction="#clickCancel" prefHeight="38.0" prefWidth="106.0" style="-fx-background-color: #d9534f;" text="Cancel" textFill="WHITE">
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+         <font>
+            <Font name="System Bold" size="14.0" />
+         </font>
+      </Button>
 	</children>
 </AnchorPane>
