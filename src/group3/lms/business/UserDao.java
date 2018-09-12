@@ -38,7 +38,7 @@ public class UserDao implements Dao {
 
 	@SuppressWarnings("unchecked")
 	@Override
-	public void unpackResultSet(Serializable rs) {
+	public void unpackData(Serializable rs) {
 		this.users = (List<User>) rs;
 	}
 }

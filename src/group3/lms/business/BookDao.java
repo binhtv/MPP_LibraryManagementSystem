@@ -50,7 +50,7 @@ public class BookDao extends PaperItemDao implements Dao {
 
 	@SuppressWarnings("unchecked")
 	@Override
-	public void unpackResultSet(Serializable rs) {
+	public void unpackData(Serializable rs) {
 		this.books = (List<Book>) rs;
 	}
 }

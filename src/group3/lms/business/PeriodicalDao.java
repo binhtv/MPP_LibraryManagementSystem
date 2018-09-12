@@ -21,7 +21,7 @@ public class PeriodicalDao extends PaperItemDao implements Dao {
 		return TABLE_NAME;
 	}
 
-	public Periodical getBookById(String id) {
+	public Periodical getPeriodicalById(String id) {
 		for (Periodical p : periodicals) {
 			if (id.equals(p.getId().toLowerCase())) {
 				return p;
@@ -38,7 +38,7 @@ public class PeriodicalDao extends PaperItemDao implements Dao {
 
 	@SuppressWarnings("unchecked")
 	@Override
-	public void unpackResultSet(Serializable rs) {
+	public void unpackData(Serializable rs) {
 		this.periodicals = (List<Periodical>) rs;
 	}
 }

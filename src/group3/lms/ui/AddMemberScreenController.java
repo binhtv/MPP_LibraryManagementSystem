@@ -1,6 +1,5 @@
 package group3.lms.ui;
 
-import java.sql.SQLException;
 import java.util.Optional;
 
 import group3.lms.business.MemberDao;
@@ -120,7 +119,7 @@ public class AddMemberScreenController {
 			} else {
 				Common.showMessage(AlertType.ERROR, Messages.COMMON_INTERNAL_ERROR.getValue());
 			}
-		} catch (SQLException e) {
+		} catch (Exception e) {
 			Common.showMessage(AlertType.ERROR, Messages.COMMON_INTERNAL_ERROR.getValue());
 			e.printStackTrace();
 		}

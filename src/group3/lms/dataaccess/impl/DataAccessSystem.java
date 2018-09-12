@@ -8,7 +8,6 @@ import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.io.Serializable;
-import java.sql.SQLException;
 
 import group3.lms.dataaccess.Dao;
 import group3.lms.dataaccess.DataAccess;
@@ -24,10 +23,10 @@ public class DataAccessSystem implements DataAccess {
 	public void read(Dao dao) {
 		String fileName = dao.getName();
 		ConnectManager con = new ConnectManager();
-		dao.unpackResultSet((Serializable)con.getData(fileName));
+		dao.unpackData((Serializable)con.getData(fileName));
 	}
 	
-	public boolean write(Dao dao) throws SQLException {
+	public boolean write(Dao dao) {
 		ConnectManager con = new ConnectManager();
 		return con.writeData(dao.getAll(), dao.getName());
 	}
