@@ -34,8 +34,8 @@ public class Periodical extends PaperItem {
 		return copies;
 	}
 
-	public void addCopy(PeriodicalCopy copy) {
-		this.copies.add(copy);
+	public void addCopy(PaperItemCopy copy) {
+		this.copies.add((PeriodicalCopy)copy);
 	}
 	
 	@Override
@@ -47,5 +47,10 @@ public class Periodical extends PaperItem {
 		}
 		
 		return null;
+	}
+
+	@Override
+	public PaperItemCopy newCopy() {
+		return new PeriodicalCopy(this, copies.size() + 1);
 	}
 }

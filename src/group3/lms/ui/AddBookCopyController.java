@@ -3,8 +3,9 @@ package group3.lms.ui;
 import java.util.Optional;
 
 import group3.lms.business.BookDao;
+import group3.lms.business.PeriodicalDao;
 import group3.lms.business.entity.Book;
-import group3.lms.business.entity.BookCopy;
+import group3.lms.business.entity.PaperItem;
 import group3.lms.business.entity.User;
 import group3.lms.common.Common;
 import group3.lms.common.Messages;
@@ -30,16 +31,18 @@ public class AddBookCopyController {
 	@FXML
 	private Button btnCancel;
 	private BookDao dao = new BookDao();
+	private PeriodicalDao periodicalDao = new PeriodicalDao();
 	private DataAccess da = null;
 
 	public AddBookCopyController() {
 		// Read from the stored file
 		da = DataAccessFactory.getDataAccess();
 		da.read(dao);
+		da.read(periodicalDao);
 	}
 
 	public void txtISBNEnter(ActionEvent event) {
-		Book bk = checkExistISBN();
+		PaperItem bk = checkExistISBN();
 		if (bk == null)
 			return;
 		txtNumOfCopy.requestFocus();
@@ -61,16 +64,21 @@ public class AddBookCopyController {
 
 	public void btnAddClickMe(ActionEvent event) {
 
-		Book bk = checkInput();
+		PaperItem bk = checkInput();
 
-		if (bk == null)
+		if (bk == null) {
 			return;
+		}
 
 		for (int i = 1; i <= Integer.valueOf(txtNumOfCopy.getText()); i++) {
-			bk.addCopy(new BookCopy(bk, bk.getCopies().size() + i));
+			bk.addCopy(bk.newCopy());
 		}
 		try {
-			da.write(dao);
+			if(bk instanceof Book) {
+				da.write(dao);
+			} else {
+				da.write(periodicalDao);
+			}
 			Common.showMessage(AlertType.INFORMATION, Messages.COMMON_SUCCESS_MESSAGE.getValue());
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -78,8 +86,8 @@ public class AddBookCopyController {
 		}
 	}
 
-	private Book checkInput() {
-		Book bk = checkExistISBN();
+	private PaperItem checkInput() {
+		PaperItem bk = checkExistISBN();
 		if (bk == null)
 			return null;
 
@@ -101,13 +109,17 @@ public class AddBookCopyController {
 		return bk;
 	}
 
-	private Book checkExistISBN() {
-		if (txtISBN.getText() == null || txtISBN.getText().trim().equals("")) {
+	private PaperItem checkExistISBN() {
+		String id = txtISBN.getText().trim().toLowerCase();
+		if (txtISBN.getText() == null || id.equals("")) {
 			Common.showMessage(AlertType.INFORMATION, Messages.INPUT_ISBN.getValue());
 			return null;
 		}
-		txtISBN.setText(txtISBN.getText().trim());
-		Book u = dao.getBookByISBN(txtISBN.getText().toLowerCase());
+		txtISBN.setText(id);
+		PaperItem u = dao.getBookByISBN(id);
+		if (u == null) {
+			u = periodicalDao.getPeriodicalById(id);
+		}
 		if (u == null) {
 			Common.showMessage(AlertType.INFORMATION, Messages.NOT_EXIST_ISBN.getValue());
 			txtISBN.requestFocus();

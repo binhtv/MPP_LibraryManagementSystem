@@ -31,6 +31,6 @@
             <Font name="System Bold" size="14.0" />
          </font>
       </Button>
-      <TableView fx:id="table" layoutX="14.0" layoutY="315.0" prefHeight="342.0" prefWidth="485.0" />
+      <TableView fx:id="table" layoutX="14.0" layoutY="315.0" prefHeight="310.0" prefWidth="485.0" />
    </children>
 </AnchorPane>

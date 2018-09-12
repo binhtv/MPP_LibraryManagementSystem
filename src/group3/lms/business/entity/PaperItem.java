@@ -36,6 +36,8 @@ public abstract class PaperItem implements Borrowable {
 	public abstract List<? extends PaperItemCopy> getCopies();
 	public abstract PaperItemCopy getAvailableCopy();
 	public abstract String getId();
+	public abstract void addCopy(PaperItemCopy copy);
+	public abstract PaperItemCopy newCopy();
 	@Override
 	public String toString() {
 		return getId() + "#" + title;

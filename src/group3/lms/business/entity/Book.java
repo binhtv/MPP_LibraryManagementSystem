@@ -44,9 +44,10 @@ public class Book extends PaperItem {
 	public List<BookCopy> getCopies() {
 		return copies;
 	}
-
-	public void addCopy(BookCopy copy) {
-		this.copies.add(copy);
+	
+	@Override
+	public void addCopy(PaperItemCopy copy) {
+		this.copies.add((BookCopy)copy);
 	}
 
 	@Override
@@ -67,5 +68,10 @@ public class Book extends PaperItem {
 	@Override
 	public String getId() {
 		return ISBN;
+	}
+
+	@Override
+	public PaperItemCopy newCopy() {
+		return new BookCopy(this, copies.size() + 1);
 	}
 }

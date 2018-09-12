@@ -14,7 +14,7 @@ public class PeriodicalCopy extends PaperItemCopy implements Serializable {
 	 */
 	private static final long serialVersionUID = -2899569520830018307L;
 	
-	public PeriodicalCopy(Periodical p, int copy) {
+	public PeriodicalCopy(PaperItem p, int copy) {
 		super(p, copy);
 	}
 
