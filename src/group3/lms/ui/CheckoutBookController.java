@@ -4,7 +4,6 @@ import group3.lms.business.BookDao;
 import group3.lms.business.MemberDao;
 import group3.lms.business.entity.Book;
 import group3.lms.business.entity.Member;
-import group3.lms.business.entity.PaperItem;
 import group3.lms.business.entity.PaperItemCopy;
 import group3.lms.common.Common;
 import group3.lms.common.Messages;
@@ -27,12 +26,12 @@ public class CheckoutBookController {
 	public void clickCheckout(ActionEvent event) {
 		if (txtMemberID.getText() == null || txtMemberID.getText().equals(""))
 		{
-			Common.ShowMessage(AlertType.INFORMATION, "Member ID is not allowed empty!");
+			Common.showMessage(AlertType.INFORMATION, "Member ID is not allowed empty!");
 			txtMemberID.requestFocus();
 		}
 		else if (txtID.getText() == null || txtID.getText().equals(""))
 		{
-			Common.ShowMessage(AlertType.INFORMATION, "Book ISBN/ID is not allowed empty!");
+			Common.showMessage(AlertType.INFORMATION, "Book ISBN/ID is not allowed empty!");
 			txtID.requestFocus();
 		}
 		else
@@ -50,17 +49,17 @@ public class CheckoutBookController {
 			
 			if (m == null)
 			{
-				Common.ShowMessage(AlertType.INFORMATION, Messages.NOT_EXIST_MEMBERID.getValue());
+				Common.showMessage(AlertType.INFORMATION, Messages.NOT_EXIST_MEMBERID.getValue());
 				txtMemberID.requestFocus();
 			}
 			else if (b == null)
 			{
-				Common.ShowMessage(AlertType.INFORMATION, Messages.NOT_EXIST_ISBN.getValue());
+				Common.showMessage(AlertType.INFORMATION, Messages.NOT_EXIST_ISBN.getValue());
 				txtID.requestFocus();
 			}
 			else if (PaperItemCopy.getPaperItemCopy_ByBook_Available(b) == null)
 			{
-				Common.ShowMessage(AlertType.INFORMATION, Messages.NOT_AVAILABLE_COPYBOOK.getValue());
+				Common.showMessage(AlertType.INFORMATION, Messages.NOT_AVAILABLE_COPYBOOK.getValue());
 				txtID.requestFocus();
 			}
 			else
