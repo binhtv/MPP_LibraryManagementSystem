@@ -16,21 +16,21 @@
       </ImageView>
       <TextField fx:id="txtMemberID" layoutX="176.0" layoutY="80.0" prefHeight="27.0" prefWidth="182.0" />
       <TextField fx:id="txtID" layoutX="177.0" layoutY="129.0" prefHeight="28.0" prefWidth="182.0" />
-      <Button fx:id="btnCheckout" layoutX="175.0" layoutY="180.0" mnemonicParsing="false" onAction="#clickCheckout" prefHeight="41.0" prefWidth="117.0" text="Checkout">
-         <font>
-            <Font name="System Bold" size="14.0" />
-         </font>
-      </Button>
-      <TableView fx:id="table" layoutX="14.0" layoutY="315.0" prefHeight="342.0" prefWidth="485.0" />
-      <Button fx:id="btnCancel" layoutX="308.0" layoutY="181.0" mnemonicParsing="false" onAction="#clickCancel" prefHeight="41.0" prefWidth="111.0" style="-fx-background-color: d9534f;" text="Cancel" textFill="WHITE">
-         <font>
-            <Font name="System Bold" size="14.0" />
-         </font>
-      </Button>
       <Button fx:id="btnAdd" layoutX="373.0" layoutY="129.0" mnemonicParsing="false" onAction="#addItem" prefHeight="28.0" prefWidth="52.0" style="-fx-background-color: #007bff;" text="Add" textFill="WHITE">
          <font>
             <Font name="System Bold" size="14.0" />
          </font>
       </Button>
+      <Button fx:id="btnCheckout" layoutX="175.0" layoutY="180.0" mnemonicParsing="false" onAction="#clickCheckout" prefHeight="41.0" prefWidth="117.0" text="Checkout">
+         <font>
+            <Font name="System Bold" size="14.0" />
+         </font>
+      </Button>
+      <Button fx:id="btnCancel" layoutX="308.0" layoutY="181.0" mnemonicParsing="false" onAction="#clickCancel" prefHeight="41.0" prefWidth="111.0" style="-fx-background-color: d9534f;" text="Cancel" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="14.0" />
+         </font>
+      </Button>
+      <TableView fx:id="table" layoutX="14.0" layoutY="315.0" prefHeight="342.0" prefWidth="485.0" />
    </children>
 </AnchorPane>

@@ -84,7 +84,7 @@ public class AddBookCopyController {
 			return null;
 
 		if (txtNumOfCopy.getText() == null || txtNumOfCopy.getText().trim().equals("")) {
-			Common.showMessage(AlertType.ERROR, Messages.INPUT_NUM_OF_COPY.getValue());
+			Common.showMessage(AlertType.INFORMATION, Messages.INPUT_NUM_OF_COPY.getValue());
 			txtNumOfCopy.requestFocus();
 			return null;
 		}
@@ -93,7 +93,7 @@ public class AddBookCopyController {
 		try {
 			Integer.parseInt(txtNumOfCopy.getText());
 		} catch (NumberFormatException ex) {
-			Common.showMessage(AlertType.ERROR, Messages.INPUT_NOT_NUMBER.getValue());
+			Common.showMessage(AlertType.INFORMATION, Messages.INPUT_NOT_NUMBER.getValue());
 			txtNumOfCopy.requestFocus();
 			return null;
 		}
@@ -103,13 +103,13 @@ public class AddBookCopyController {
 
 	private Book checkExistISBN() {
 		if (txtISBN.getText() == null || txtISBN.getText().trim().equals("")) {
-			Common.showMessage(AlertType.ERROR, Messages.INPUT_ISBN.getValue());
+			Common.showMessage(AlertType.INFORMATION, Messages.INPUT_ISBN.getValue());
 			return null;
 		}
 		txtISBN.setText(txtISBN.getText().trim());
 		Book u = dao.getBookByISBN(txtISBN.getText().toLowerCase());
 		if (u == null) {
-			Common.showMessage(AlertType.ERROR, Messages.NOT_EXIST_ISBN.getValue());
+			Common.showMessage(AlertType.INFORMATION, Messages.NOT_EXIST_ISBN.getValue());
 			txtISBN.requestFocus();
 			return null;
 		}
