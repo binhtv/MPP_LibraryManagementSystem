@@ -40,4 +40,14 @@ public abstract class PaperItemCopy implements Serializable {
 	public void setCe(CheckoutEntry ce) {
 		this.ce = ce;
 	}
+	
+	public static PaperItemCopy getPaperItemCopy_ByBook_Available(Book book)
+	{
+		for(BookCopy copy : book.getCopies())
+		{
+			if(copy.getCe() == null)
+				return copy;
+		}
+		return null;
+	}
 }

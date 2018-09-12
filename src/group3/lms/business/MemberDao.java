@@ -15,6 +15,16 @@ public class MemberDao implements Dao {
 	private final static String TABLE_NAME = "members";
 	private List<Member> members;
 	
+	public Member getMember(String memberID) {
+		for(Member m : members) {
+			if(memberID.equals(m.getMemberId().toLowerCase())) {
+				return m;
+			}
+		}
+		
+		return null;
+	}
+	
 	@Override
 	public String getName() {
 		return TABLE_NAME;

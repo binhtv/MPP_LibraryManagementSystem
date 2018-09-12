@@ -35,7 +35,9 @@ public class MainScreenController {
 	}
 
 	public void btnCheckoutBkClickMe(ActionEvent event) {
-		Common.ShowMessage(AlertType.INFORMATION, "checkout book");
+		Stage primaryStage = (Stage) ((Node)event.getSource()).getScene().getWindow();
+		primaryStage.setTitle(Messages.TITLE_ADD_CHECKOUT.getValue());
+		primaryStage.setScene(SceneFactory.createCheckoutScreen());
 	}
 
 }
