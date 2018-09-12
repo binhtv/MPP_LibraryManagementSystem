@@ -50,7 +50,7 @@ public class AddBookCopyController {
 			return;
 		
 		if (txtNumOfCopy.getText() == null || txtNumOfCopy.getText().trim().equals("")) {
-			Common.ShowMessage(AlertType.ERROR, Messages.INPUT_NUM_OF_COPY.getValue());
+			Common.showMessage(AlertType.ERROR, Messages.INPUT_NUM_OF_COPY.getValue());
 			txtNumOfCopy.requestFocus();
 			return;
 		}
@@ -69,13 +69,13 @@ public class AddBookCopyController {
 	
 	private Book checkExistISBN() {
 		if (txtISBN.getText() == null || txtISBN.getText().trim().equals("")) {
-			Common.ShowMessage(AlertType.ERROR, Messages.INPUT_ISBN.getValue());
+			Common.showMessage(AlertType.ERROR, Messages.INPUT_ISBN.getValue());
 			return null;
 		} 
 		
 		Book u = dao.getBookByISBN(txtISBN.getText().toLowerCase());
 		if (u == null) {
-			Common.ShowMessage(AlertType.ERROR, Messages.NOT_EXIST_ISBN.getValue());
+			Common.showMessage(AlertType.ERROR, Messages.NOT_EXIST_ISBN.getValue());
 			txtISBN.requestFocus();
 			return null;
 		}

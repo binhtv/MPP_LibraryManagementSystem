@@ -1,6 +1,7 @@
 package group3.lms.business;
 
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.List;
 
 import group3.lms.business.entity.User;
@@ -13,7 +14,7 @@ import group3.lms.dataaccess.Dao;
  */
 public class UserDao implements Dao {
 	private final static String TABLE_NAME = "users";
-	private List<User> users;
+	private List<User> users = new ArrayList<>();
 	
 	@Override
 	public String getName() {

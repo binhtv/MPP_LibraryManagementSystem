@@ -9,7 +9,7 @@ import javafx.scene.control.ButtonType;
 public class Common {
 	public static final String SYSTEM_NAME = "Library Management System";
 
-	public static Optional<ButtonType> ShowMessage(AlertType type, String messge) {
+	public static Optional<ButtonType> showMessage(AlertType type, String messge) {
 		Alert alert = new Alert(type);
 		alert.setTitle(SYSTEM_NAME);
 		alert.setHeaderText(null);

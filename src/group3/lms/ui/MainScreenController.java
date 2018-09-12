@@ -27,15 +27,15 @@ public class MainScreenController {
 	}
 
 	public void btnAddBkClickMe(ActionEvent event) {
-		Common.ShowMessage(AlertType.INFORMATION, "add book");
+		Common.showMessage(AlertType.INFORMATION, "add book");
 	}
 
 	public void btnAddBkCopyClickMe(ActionEvent event) {
-		Common.ShowMessage(AlertType.INFORMATION, "add book copy");
+		Common.showMessage(AlertType.INFORMATION, "add book copy");
 	}
 
 	public void btnCheckoutBkClickMe(ActionEvent event) {
-		Common.ShowMessage(AlertType.INFORMATION, "checkout book");
+		Common.showMessage(AlertType.INFORMATION, "checkout book");
 	}
 
 }

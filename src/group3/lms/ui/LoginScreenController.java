@@ -30,11 +30,11 @@ public class LoginScreenController {
 	public void txtNameEnter(ActionEvent event) {
 		if (txtName.getText() == null || txtName.getText().trim().equals("")) {
 			Optional<ButtonType> result =
-					Common.ShowMessage(AlertType.CONFIRMATION, Messages.INPUT_USER_NAME.getValue());
+					Common.showMessage(AlertType.CONFIRMATION, Messages.INPUT_USER_NAME.getValue());
 			if (result.get() == ButtonType.OK) {
-				Common.ShowMessage(AlertType.INFORMATION, "OK");
+				Common.showMessage(AlertType.INFORMATION, "OK");
 			} else {
-				Common.ShowMessage(AlertType.INFORMATION, "NOT OK");
+				Common.showMessage(AlertType.INFORMATION, "NOT OK");
 			}
 			txtName.requestFocus();
 			return;
@@ -44,12 +44,12 @@ public class LoginScreenController {
 
 	public void btnLoginClickMe(ActionEvent event) {
 		if (txtName.getText() == null || txtName.getText().trim().equals("")) {
-			Common.ShowMessage(AlertType.ERROR, Messages.INPUT_USER_NAME.getValue());
+			Common.showMessage(AlertType.ERROR, Messages.INPUT_USER_NAME.getValue());
 			txtName.requestFocus();
 			return;
 		}
 		if (txtPass.getText() == null || txtPass.getText().trim().equals("")) {
-			Common.ShowMessage(AlertType.ERROR, Messages.INPUT_PASSWORD.getValue());
+			Common.showMessage(AlertType.ERROR, Messages.INPUT_PASSWORD.getValue());
 			txtPass.requestFocus();
 			return;
 		}
@@ -59,7 +59,7 @@ public class LoginScreenController {
 		da.read(dao);
 		User u = dao.getUser(txtName.getText().toLowerCase());
 		if (u == null || !txtPass.getText().equals(u.getPassword())) {
-			Common.ShowMessage(AlertType.ERROR, Messages.INCORRECT_USER_PASS.getValue());
+			Common.showMessage(AlertType.ERROR, Messages.INCORRECT_USER_PASS.getValue());
 			txtName.requestFocus();
 			return;
 		}
