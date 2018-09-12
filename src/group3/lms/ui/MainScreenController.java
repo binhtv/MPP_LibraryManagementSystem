@@ -6,6 +6,10 @@ import group3.lms.ui.scene.SceneFactory;
 import javafx.application.Platform;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.geometry.Rectangle2D;
+import javafx.scene.control.Alert.AlertType;
+import javafx.stage.Screen;
+import javafx.stage.Stage;
 import javafx.scene.Node;
 import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.Button;
@@ -66,8 +70,9 @@ public class MainScreenController {
 
 	public void btnNewMemClickMe(ActionEvent event) {
 		Stage primaryStage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-		primaryStage.setTitle(Messages.TITLE_ADD_NEW_MEMBER.getValue());
 		primaryStage.setScene(SceneFactory.createAddMemberScreen());
+		primaryStage.setTitle(Messages.TITLE_ADD_NEW_MEMBER.getValue());
+		setWindowToCenter(primaryStage);
 	}
 
 	public void btnAddBkClickMe(ActionEvent event) {
@@ -76,14 +81,22 @@ public class MainScreenController {
 
 	public void btnAddBkCopyClickMe(ActionEvent event) {
 		Stage primaryStage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-		primaryStage.setTitle(Messages.TITLE_ADD_BOOK_COPY.getValue());
 		primaryStage.setScene(SceneFactory.createAddBookCopyScreen());
+		primaryStage.setTitle(Messages.TITLE_ADD_BOOK_COPY.getValue());
+		setWindowToCenter(primaryStage);
 	}
 
 	public void btnCheckoutBkClickMe(ActionEvent event) {
 		Stage primaryStage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-		primaryStage.setTitle(Messages.TITLE_ADD_CHECKOUT.getValue());
 		primaryStage.setScene(SceneFactory.createCheckoutScreen());
+		primaryStage.setTitle(Messages.TITLE_ADD_CHECKOUT.getValue());
+		setWindowToCenter(primaryStage);
+	}
+	
+	private void setWindowToCenter(Stage primaryStage) {
+        Rectangle2D primScreenBounds = Screen.getPrimary().getVisualBounds();
+        primaryStage.setX((primScreenBounds.getWidth() - primaryStage.getWidth()) / 2);
+        primaryStage.setY((primScreenBounds.getHeight() - primaryStage.getHeight()) / 2);
 	}
 
 }

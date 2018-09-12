@@ -14,7 +14,7 @@
 				<Image url="@../resources/main.jpg" />
 			</image>
 		</ImageView>
-		<Button fx:id="btnNewMem" defaultButton="true" layoutX="40.0" layoutY="78.0" mnemonicParsing="false" onAction="#btnNewMemClickMe" prefHeight="54.0" prefWidth="204.0" text="New Member">
+		<Button fx:id="btnNewMem" layoutX="40.0" layoutY="78.0" mnemonicParsing="false" onAction="#btnNewMemClickMe" prefHeight="54.0" prefWidth="204.0" text="New Member">
 			<font>
 				<Font size="21.0" />
 			</font>
