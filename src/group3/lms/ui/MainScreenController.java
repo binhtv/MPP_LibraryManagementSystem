@@ -3,14 +3,24 @@ package group3.lms.ui;
 import group3.lms.common.Common;
 import group3.lms.common.Messages;
 import group3.lms.ui.scene.SceneFactory;
+import javafx.application.Platform;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.scene.control.Alert.AlertType;
-import javafx.stage.Stage;
 import javafx.scene.Node;
+import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.Button;
+import javafx.scene.control.Label;
+import javafx.scene.control.Menu;
+import javafx.scene.control.MenuBar;
+import javafx.scene.control.MenuItem;
+import javafx.scene.control.SeparatorMenuItem;
+import javafx.scene.layout.AnchorPane;
+import javafx.scene.layout.VBox;
+import javafx.stage.Stage;
 
 public class MainScreenController {
+	@FXML
+	AnchorPane rootContainer;
 	@FXML
 	private Button btnNewMem;
 	@FXML
@@ -20,8 +30,42 @@ public class MainScreenController {
 	@FXML
 	private Button btnCheckoutBk;
 
+	@FXML
+	protected void initialize() {
+		MenuBar menuBar = new MenuBar();
+
+		Menu menu = new Menu("Application");
+		MenuItem logoutMenu = new MenuItem();
+		Label logout = new Label("Logout");
+		logout.setStyle("-fx-text-fill: blue;-fx-min-width:100;");
+		logoutMenu.setGraphic(logout);
+		
+		logoutMenu.setOnAction(evt -> {
+			Stage primaryStage = (Stage) rootContainer.getScene().getWindow();
+			primaryStage.setTitle(Messages.TITLE_LOGIN.getValue());
+			primaryStage.setScene(SceneFactory.createLoginScreen());
+			primaryStage.setUserData(null);
+		});
+		menu.getItems().add(logoutMenu);
+		menu.getItems().add(new SeparatorMenuItem());
+		MenuItem exitApp = new MenuItem();
+		Label extLbl = new Label("Exit");
+		extLbl.setStyle("-fx-text-fill: blue;-fx-min-width:100;");
+		exitApp.setGraphic(extLbl);
+		exitApp.setOnAction(evt -> Platform.exit());
+		menu.getItems().add(exitApp);
+
+		menuBar.getMenus().add(menu);
+
+		VBox topContainer = new VBox();
+		topContainer.setPrefWidth(1000);
+
+		topContainer.getChildren().add(menuBar);
+		rootContainer.getChildren().add(topContainer);
+	}
+
 	public void btnNewMemClickMe(ActionEvent event) {
-		Stage primaryStage = (Stage) ((Node)event.getSource()).getScene().getWindow();
+		Stage primaryStage = (Stage) ((Node) event.getSource()).getScene().getWindow();
 		primaryStage.setTitle(Messages.TITLE_ADD_NEW_MEMBER.getValue());
 		primaryStage.setScene(SceneFactory.createAddMemberScreen());
 	}
@@ -31,13 +75,13 @@ public class MainScreenController {
 	}
 
 	public void btnAddBkCopyClickMe(ActionEvent event) {
-		Stage primaryStage = (Stage) ((Node)event.getSource()).getScene().getWindow();
+		Stage primaryStage = (Stage) ((Node) event.getSource()).getScene().getWindow();
 		primaryStage.setTitle(Messages.TITLE_ADD_BOOK_COPY.getValue());
 		primaryStage.setScene(SceneFactory.createAddBookCopyScreen());
 	}
 
 	public void btnCheckoutBkClickMe(ActionEvent event) {
-		Stage primaryStage = (Stage) ((Node)event.getSource()).getScene().getWindow();
+		Stage primaryStage = (Stage) ((Node) event.getSource()).getScene().getWindow();
 		primaryStage.setTitle(Messages.TITLE_ADD_CHECKOUT.getValue());
 		primaryStage.setScene(SceneFactory.createCheckoutScreen());
 	}
