@@ -31,7 +31,9 @@ public class MainScreenController {
 	}
 
 	public void btnAddBkCopyClickMe(ActionEvent event) {
-		Common.showMessage(AlertType.INFORMATION, "add book copy");
+		Stage primaryStage = (Stage) ((Node)event.getSource()).getScene().getWindow();
+		primaryStage.setTitle(Messages.TITLE_ADD_BOOK_COPY.getValue());
+		primaryStage.setScene(SceneFactory.createAddBookCopyScreen());
 	}
 
 	public void btnCheckoutBkClickMe(ActionEvent event) {

@@ -17,18 +17,18 @@ public class Book extends PaperItem {
 	private String ISBN;
 	private List<Author> authors;
 	private List<BookCopy> copies;
-	
+
 	public Book(String ISBN, String title, boolean available, int borrowDay) {
 		super(title, available, borrowDay);
 		this.ISBN = ISBN;
 		this.authors = new ArrayList<>();
 		this.copies = new ArrayList<>();
 	}
-	
+
 	public String getISBN() {
 		return ISBN;
 	}
-	
+
 	public void setISBN(String iSBN) {
 		ISBN = iSBN;
 	}
@@ -47,5 +47,9 @@ public class Book extends PaperItem {
 
 	public void addCopy(BookCopy copy) {
 		this.copies.add(copy);
+	}
+
+	public void clearCopy() {
+		this.copies = new ArrayList<>();
 	}
 }
