@@ -1,11 +1,15 @@
 package group3.lms.ui;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import group3.lms.business.BookDao;
 import group3.lms.business.MemberDao;
+import group3.lms.business.PeriodicalDao;
 import group3.lms.business.entity.Book;
 import group3.lms.business.entity.Member;
 import group3.lms.business.entity.PaperItem;
-import group3.lms.business.entity.PaperItemCopy;
+import group3.lms.business.entity.Periodical;
 import group3.lms.common.Common;
 import group3.lms.common.Messages;
 import group3.lms.dataaccess.DataAccess;
@@ -23,48 +27,74 @@ public class CheckoutBookController {
 	private TextField txtMemberID;
 	@FXML
 	private TextField txtID;
+	
+	private List<PaperItem> pis;
+	
+	private MemberDao memberDao = new MemberDao();
+	private BookDao bookDao = new BookDao();
+	private PeriodicalDao periodicalDao = new PeriodicalDao();
+	private DataAccess da = null;
+
+	public CheckoutBookController() {
+		// Read from the stored file
+		da = DataAccessFactory.getDataAccess();
+		da.read(memberDao);
+		da.read(bookDao);
+		da.read(periodicalDao);
+		
+		pis = new ArrayList<>();
+	}
+
+	@FXML
+	protected void initialize() {
+		txtMemberID.requestFocus();
+	}
 
 	public void clickCheckout(ActionEvent event) {
-		if (txtMemberID.getText() == null || txtMemberID.getText().equals(""))
-		{
-			Common.ShowMessage(AlertType.INFORMATION, "Member ID is not allowed empty!");
+		if (txtMemberID.getText() == null || txtMemberID.getText().equals("")) {
+			Common.showMessage(AlertType.INFORMATION, "Member ID is not allowed empty!");
 			txtMemberID.requestFocus();
+			return;
 		}
-		else if (txtID.getText() == null || txtID.getText().equals(""))
-		{
-			Common.ShowMessage(AlertType.INFORMATION, "Book ISBN/ID is not allowed empty!");
+		if (txtID.getText() == null || txtID.getText().equals("")) {
+			Common.showMessage(AlertType.INFORMATION, "Book ISBN/ID is not allowed empty!");
 			txtID.requestFocus();
+			return;
 		}
-		else
-		{
-			// Read from the stored file
-			DataAccess da = DataAccessFactory.getDataAccess();
-			//get member from stored file
-			MemberDao memberDao = new MemberDao();
-			da.read(memberDao);
-			Member m = memberDao.getMember(txtMemberID.getText().toLowerCase());	
-			//get Book from stored file
-			BookDao bookDao = new BookDao();
-			da.read(bookDao);
-			Book b = bookDao.getBookByISBN(txtID.getText().toLowerCase());
-			
-			if (m == null)
-			{
-				Common.ShowMessage(AlertType.INFORMATION, Messages.NOT_EXIST_MEMBERID.getValue());
-				txtMemberID.requestFocus();
-			}
-			else if (b == null)
-			{
-				Common.ShowMessage(AlertType.INFORMATION, Messages.NOT_EXIST_ISBN.getValue());
-				txtID.requestFocus();
-			}
-			else if (PaperItemCopy.getPaperItemCopy_ByBook_Available(b) == null)
-			{
-				Common.ShowMessage(AlertType.INFORMATION, Messages.NOT_AVAILABLE_COPYBOOK.getValue());
-				txtID.requestFocus();
-			}
-			else
-			{}
+
+		Member m = memberDao.getMember(txtMemberID.getText().toLowerCase());
+		if (m == null) {
+			Common.showMessage(AlertType.INFORMATION, Messages.NOT_EXIST_MEMBERID.getValue());
+			txtMemberID.requestFocus();
+			return;
 		}
+
+		// get Book from stored file
+		Book b = bookDao.getBookByISBN(txtID.getText().toLowerCase());
+		Periodical p = null;
+		if (b == null) {
+			p = periodicalDao.getBookById(txtID.getText().toLowerCase());
+		}
+
+		if (b == null && p == null) {
+			Common.showMessage(AlertType.INFORMATION, Messages.NOT_EXIST_ISBN.getValue());
+			txtID.requestFocus();
+			return;
+		}
+
+		if (b != null && bookDao.isAvailable(b)) {
+			Common.showMessage(AlertType.INFORMATION, Messages.NOT_AVAILABLE_COPYBOOK.getValue());
+			txtID.requestFocus();
+			return;
+		}
+
+		if (p != null && periodicalDao.isAvailable(p)) {
+			Common.showMessage(AlertType.INFORMATION, Messages.NOT_AVAILABLE_COPYBOOK.getValue());
+			txtID.requestFocus();
+			return;
+		}
+		
+//		memberDao.checkOut(m, pis);
+		Common.showMessage(AlertType.INFORMATION, Messages.COMMON_SUCCESS_MESSAGE.getValue());
 	}
 }

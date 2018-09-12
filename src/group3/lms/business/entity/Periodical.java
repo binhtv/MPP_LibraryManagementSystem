@@ -37,4 +37,15 @@ public class Periodical extends PaperItem {
 	public void addCopy(PeriodicalCopy copy) {
 		this.copies.add(copy);
 	}
+	
+	@Override
+	public PeriodicalCopy getAvailableCopy() {
+		for(PeriodicalCopy pi : copies) {
+			if(pi.getCe() == null) {
+				return pi;
+			}
+		}
+		
+		return null;
+	}
 }

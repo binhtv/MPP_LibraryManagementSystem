@@ -1,5 +1,7 @@
 package group3.lms.business.entity;
 
+import java.util.List;
+
 public abstract class PaperItem implements Borrowable {
 
 	/**
@@ -40,4 +42,7 @@ public abstract class PaperItem implements Borrowable {
 	public void setBorrowDay(int borrowDay) {
 		this.borrowDay = borrowDay;
 	}
+	
+	public abstract List<? extends PaperItemCopy> getCopies();
+	public abstract PaperItemCopy getAvailableCopy();
 }

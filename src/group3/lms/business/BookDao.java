@@ -12,7 +12,7 @@ import group3.lms.dataaccess.Dao;
  * @author binhtran
  *
  */
-public class BookDao implements Dao {
+public class BookDao extends PaperItemDao implements Dao {
 
 	private final static String TABLE_NAME = "books";
 	private List<Book> books;
@@ -31,7 +31,7 @@ public class BookDao implements Dao {
 
 		return null;
 	}
-	
+
 	public void updateBookCopy(Book book) {
 		for (Book u : books) {
 			if (book.getISBN().equals(u.getISBN().toLowerCase())) {
@@ -42,7 +42,7 @@ public class BookDao implements Dao {
 			}
 		}
 	}
-
+	
 	@Override
 	public List<?> getAll() {
 		return books;

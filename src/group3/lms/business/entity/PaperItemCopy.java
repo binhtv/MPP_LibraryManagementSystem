@@ -16,17 +16,17 @@ public abstract class PaperItemCopy implements Serializable {
 	protected int copyID;
 	protected PaperItem paperItem;
 	protected CheckoutEntry ce;
-	
+
 	public PaperItemCopy(PaperItem paperItem, int copy) {
 		copyID = copy;
 		this.paperItem = paperItem;
 		this.ce = null;
 	}
-	
+
 	public int getCopyID() {
 		return copyID;
 	}
-	
+
 	public void setCopyID(int copyID) {
 		this.copyID = copyID;
 	}
@@ -36,18 +36,8 @@ public abstract class PaperItemCopy implements Serializable {
 	public CheckoutEntry getCe() {
 		return ce;
 	}
-	
+
 	public void setCe(CheckoutEntry ce) {
 		this.ce = ce;
-	}
-	
-	public static PaperItemCopy getPaperItemCopy_ByBook_Available(Book book)
-	{
-		for(BookCopy copy : book.getCopies())
-		{
-			if(copy.getCe() == null)
-				return copy;
-		}
-		return null;
 	}
 }

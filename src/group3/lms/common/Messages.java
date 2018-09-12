@@ -15,7 +15,7 @@ public enum Messages {
 	NOT_EXIST_MEMBERID("Member ID does not exist."),
 	
 	//NOT AVAILABLE
-	NOT_AVAILABLE_COPYBOOK("Copy books are not available."),
+	NOT_AVAILABLE_COPYBOOK("Copy books or periodicals are not available."),
 	
 	//INCORRECT MESSAGES
 	INCORRECT_USER_PASS("User name or Password is incorrect."),

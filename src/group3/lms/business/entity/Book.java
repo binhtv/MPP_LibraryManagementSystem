@@ -48,4 +48,15 @@ public class Book extends PaperItem {
 	public void addCopy(BookCopy copy) {
 		this.copies.add(copy);
 	}
+
+	@Override
+	public BookCopy getAvailableCopy() {
+		for(BookCopy pi : copies) {
+			if(pi.getCe() == null) {
+				return pi;
+			}
+		}
+		
+		return null;
+	}
 }

@@ -21,8 +21,8 @@ public class CheckoutEntry implements Serializable {
 	private PaperItemCopy paperItemCopy;
 	
 	public CheckoutEntry(int id, LocalDate checkoutDate, PaperItemCopy bc) throws Exception {
-		if(bc.getCe() != null) {
-			throw new Exception("This item is borrowed.");
+		if(bc == null || bc.getCe() != null) {
+			throw new Exception("This item is not available.");
 		}
 		
 		this.id = id;

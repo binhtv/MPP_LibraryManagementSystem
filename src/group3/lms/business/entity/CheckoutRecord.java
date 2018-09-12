@@ -18,7 +18,7 @@ public class CheckoutRecord implements Serializable {
 	private Member member;
 	private List<CheckoutEntry> checkoutEntries;
 	
-	CheckoutRecord(Member member) {
+	public CheckoutRecord(Member member) {
 		this.member = member;
 		this.member.addRecord(this);
 		this.checkoutEntries = new ArrayList<>();
