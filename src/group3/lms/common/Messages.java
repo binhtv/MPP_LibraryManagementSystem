@@ -1,6 +1,9 @@
 package group3.lms.common;
 
 public enum Messages {
+	INPUT_ISBN("Please input ISBN of book!"),
+	INPUT_NUM_OF_COPY("Please input number of copy!"),
+	NOT_EXIST_ISBN("ISBN does not exist."),
 	INPUT_USER_NAME("Please input user name!"),
 	INPUT_PASSWORD("Please input password!"),
 	INPUT_CREATENEWMEMBER("Do you want to create a new member?"),
