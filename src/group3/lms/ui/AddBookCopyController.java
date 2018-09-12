@@ -68,7 +68,7 @@ public class AddBookCopyController {
 			return;
 
 		for (int i = 1; i <= Integer.valueOf(txtNumOfCopy.getText()); i++) {
-			bk.addCopy(new BookCopy(bk, bk.getCopies().size() + i));
+			bk.addCopy(new BookCopy(bk, bk.getCopies().size() + 1));
 		}
 		try {
 			da.write(dao);
