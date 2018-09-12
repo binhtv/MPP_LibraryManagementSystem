@@ -1,6 +1,7 @@
 package group3.lms.business;
 
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.List;
 
 import group3.lms.business.entity.Member;
@@ -13,7 +14,7 @@ import group3.lms.dataaccess.Dao;
  */
 public class MemberDao implements Dao {
 	private final static String TABLE_NAME = "members";
-	private List<Member> members;
+	private List<Member> members = new ArrayList<>();
 	
 	public Member getMember(String memberID) {
 		for(Member m : members) {
@@ -39,5 +40,14 @@ public class MemberDao implements Dao {
 	@Override
 	public void unpackResultSet(Serializable rs) {
 		this.members = (List<Member>) rs;
+	}
+	
+	public void addMember(Member member) {
+		this.members.add(member);
+	}
+	
+	public String nextMemberId() {
+		int nextId = members.size() + 1;
+		return "M" + nextId;
 	}
 }

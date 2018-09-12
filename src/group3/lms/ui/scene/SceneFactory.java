@@ -1,7 +1,9 @@
 package group3.lms.ui.scene;
 
 import java.io.IOException;
+import java.util.List;
 
+import group3.lms.business.entity.Role;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
@@ -26,18 +28,32 @@ public final class SceneFactory {
 		return scene;
 	}
 
-	public static final Scene createMainScreen() {
+	public static final Scene createMainScreen(List<Role> roles) {
 		Scene scene = null;
 		try {
 			Parent root = FXMLLoader.load(SceneFactory.class.getResource(MAIN_SCREEN_FILE));
 			scene = new Scene(root, 496, 295);
+			for (Role r : roles) {
+				if(!r.can(Role.ADD_BOOK)) {
+					scene.lookup("#btnAddBk").setVisible(false);
+				}
+				if(!r.can(Role.ADD_BOOKCOPY)) {
+					scene.lookup("#btnAddBkCopy").setVisible(false);
+				}
+				if(!r.can(Role.ADD_MEMBER)) {
+					scene.lookup("#btnNewMem").setVisible(false);
+				}
+				if(!r.can(Role.CHECK_OUT)) {
+					scene.lookup("#btnCheckoutBk").setVisible(false);
+				}
+			}
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
 
 		return scene;
 	}
-	
+
 	public static final Scene createAddMemberScreen() {
 		Scene scene = null;
 		try {
@@ -60,5 +76,5 @@ public final class SceneFactory {
 		}
 
 		return scene;
-	} 
+	}
 }

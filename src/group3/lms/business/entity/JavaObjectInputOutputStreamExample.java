@@ -5,7 +5,7 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.ObjectOutputStream;
 import java.time.LocalDate;
-import java.util.Arrays;
+import java.util.ArrayList;
 import java.util.List;
 
 public class JavaObjectInputOutputStreamExample {
@@ -24,7 +24,10 @@ public class JavaObjectInputOutputStreamExample {
 		u1.addRole(new Administrator());
 		User u2 = new User("David", "Pham", "3938228383", "librarian", "1234");
 		u2.addRole(new Librarian());
-		return Arrays.asList(u1, u2);
+		List<User> users = new ArrayList<>();
+		users.add(u1);
+		users.add(u2);
+		return users;
 	}
 
 	public static List<Member> createMembers(List<Book> books, List<Periodical> periodicals) throws Exception {
@@ -69,7 +72,12 @@ public class JavaObjectInputOutputStreamExample {
 		CheckoutEntry ce7 = new CheckoutEntry(8, LocalDate.of(2018, 9, 10), p4.getCopies().get(1));
 		cr3.addCheckoutEntry(ce7);
 		
-		return Arrays.asList(m1, m2, m3, m4);
+		List<Member> list = new ArrayList<>();
+		list.add(m1);
+		list.add(m2);
+		list.add(m3);
+		list.add(m4);
+		return list;
 	}
 
 	public static List<Book> createBooks() {
@@ -112,7 +120,12 @@ public class JavaObjectInputOutputStreamExample {
 		BookCopy copy8 = new BookCopy(b3, 1);
 		b4.addCopy(copy8);
 
-		return Arrays.asList(b1, b2, b3, b4);
+		List<Book> list = new ArrayList<>();
+		list.add(b1);
+		list.add(b2);
+		list.add(b3);
+		list.add(b4);
+		return list;
 	}
 
 	public static List<Periodical> createPeriodicals() {
@@ -140,7 +153,12 @@ public class JavaObjectInputOutputStreamExample {
 		b3.addCopy(copy7);
 		b3.addCopy(copy8);
 
-		return Arrays.asList(b1, b2, b3, b4);
+		List<Periodical> list = new ArrayList<>();
+		list.add(b1);
+		list.add(b2);
+		list.add(b3);
+		list.add(b4);
+		return list;
 	}
 
 	public static void main(String[] args) {

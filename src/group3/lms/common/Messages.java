@@ -1,6 +1,8 @@
 package group3.lms.common;
 
 public enum Messages {
+	COMMON_INTERNAL_ERROR("Unknow error occurred, please try again."),
+	COMMON_SUCCESS_MESSAGE("Your changes have been saved successfully."),
 	//INPUT MESSAGES
 	INPUT_ISBN("Please input ISBN of book!"),
 	INPUT_NUM_OF_COPY("Please input number of copy!"),
@@ -17,6 +19,8 @@ public enum Messages {
 	
 	//INCORRECT MESSAGES
 	INCORRECT_USER_PASS("User name or Password is incorrect."),
+	
+	NEW_MEMBER_CANCEL("Are you sure to exit to Home Screen?"),
 	
 	//TITLE
 	TITLE_LOGIN("Please Login"),
