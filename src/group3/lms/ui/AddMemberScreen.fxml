@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.text.*?>
 <?import javafx.scene.image.*?>
@@ -22,7 +23,17 @@
       <TextField fx:id="txtState" layoutX="152.0" layoutY="425.0" prefHeight="28.0" prefWidth="209.0" />
       <TextField fx:id="txtZip" layoutX="152.0" layoutY="472.0" prefHeight="28.0" prefWidth="209.0" />
       <TextField fx:id="txtPhone" layoutX="152.0" layoutY="516.0" prefHeight="28.0" prefWidth="209.0" />
-      <Button fx:id="btnNew" layoutX="607.0" layoutY="80.0" mnemonicParsing="false" onAction="#clickNew" prefHeight="28.0" prefWidth="122.0" text="New" />
-      <Button fx:id="btnSave" layoutX="607.0" layoutY="138.0" mnemonicParsing="false" onAction="#clickSave" prefHeight="28.0" prefWidth="122.0" text="Save" />
+      <Button fx:id="btnNew" defaultButton="true" layoutX="607.0" layoutY="63.0" mnemonicParsing="false" onAction="#clickNew" prefHeight="28.0" prefWidth="122.0" text="New">
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor></Button>
+      <Button fx:id="btnSave" layoutX="607.0" layoutY="109.0" mnemonicParsing="false" onAction="#clickSave" prefHeight="28.0" prefWidth="122.0" text="Save">
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor></Button>
+      <Button fx:id="btnCancel" cancelButton="true" layoutX="607.0" layoutY="155.0" mnemonicParsing="false" onAction="#clickCancel" prefHeight="28.0" prefWidth="122.0" style="-fx-background-color: #d9534f;" text="Cancel" textFill="WHITE">
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor></Button>
    </children>
 </AnchorPane>

@@ -29,7 +29,6 @@ public class LoginScreenController {
 	
 	public void txtNameEnter(ActionEvent event) {
 		if (txtName.getText() == null || txtName.getText().trim().equals("")) {
-//			Common.ShowMessage(AlertType.ERROR, Messages.INPUT_USER_NAME.getValue());
 			Optional<ButtonType> result =
 					Common.ShowMessage(AlertType.CONFIRMATION, Messages.INPUT_USER_NAME.getValue());
 			if (result.get() == ButtonType.OK) {
@@ -55,7 +54,6 @@ public class LoginScreenController {
 			return;
 		}
 
-		// Read from the stored file
 		UserDao dao = new UserDao();
 		DataAccess da = DataAccessFactory.getDataAccess();
 		da.read(dao);
@@ -68,7 +66,8 @@ public class LoginScreenController {
 		
 		Stage primaryStage = (Stage) ((Node)event.getSource()).getScene().getWindow();
 		primaryStage.setTitle(Messages.TITLE_MAIN_SCREEN.getValue());
-		primaryStage.setScene(SceneFactory.createMainScreen());
+		primaryStage.setScene(SceneFactory.createMainScreen(u.getRoles()));
+		primaryStage.setUserData(u);
 	}
 
 }
