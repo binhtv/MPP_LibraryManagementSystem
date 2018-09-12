@@ -23,7 +23,7 @@
       <TextField fx:id="txtState" layoutX="152.0" layoutY="425.0" prefHeight="28.0" prefWidth="209.0" />
       <TextField fx:id="txtZip" layoutX="152.0" layoutY="472.0" prefHeight="28.0" prefWidth="209.0" />
       <TextField fx:id="txtPhone" layoutX="152.0" layoutY="516.0" prefHeight="28.0" prefWidth="209.0" />
-      <Button fx:id="btnNew" defaultButton="true" layoutX="607.0" layoutY="63.0" mnemonicParsing="false" onAction="#clickNew" prefHeight="28.0" prefWidth="122.0" text="New">
+      <Button fx:id="btnNew" layoutX="607.0" layoutY="63.0" mnemonicParsing="false" onAction="#clickNew" prefHeight="28.0" prefWidth="122.0" text="New">
          <cursor>
             <Cursor fx:constant="HAND" />
          </cursor></Button>

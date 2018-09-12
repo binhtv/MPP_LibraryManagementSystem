@@ -22,8 +22,8 @@ public class MainScreenController {
 
 	public void btnNewMemClickMe(ActionEvent event) {
 		Stage primaryStage = (Stage) ((Node)event.getSource()).getScene().getWindow();
-		primaryStage.setTitle(Messages.TITLE_ADD_NEW_MEMBER.getValue());
 		primaryStage.setScene(SceneFactory.createAddMemberScreen());
+		primaryStage.setTitle(Messages.TITLE_ADD_NEW_MEMBER.getValue());
 	}
 
 	public void btnAddBkClickMe(ActionEvent event) {
