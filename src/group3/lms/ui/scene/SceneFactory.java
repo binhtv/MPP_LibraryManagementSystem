@@ -13,6 +13,7 @@ public final class SceneFactory {
 	private static final String MAIN_SCREEN_FILE = "/group3/lms/ui/MainScreen.fxml";
 	private static final String ADD_MEMBER_SCREEN_FILE = "/group3/lms/ui/AddMemberScreen.fxml";
 	private static final String CHECKOUTBOOK_SCREEN_FILE = "/group3/lms/ui/CheckoutBook.fxml";
+	private static final String ADD_BOOK_COPY_SCREEN_FILE = "/group3/lms/ui/AddBookCopy.fxml";
 
 	public static final Scene createLoginScreen() {
 		Scene scene = null;
@@ -71,6 +72,18 @@ public final class SceneFactory {
 		try {
 			Parent root = FXMLLoader.load(SceneFactory.class.getResource(CHECKOUTBOOK_SCREEN_FILE));
 			scene = new Scene(root, 570, 805);
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+
+		return scene;
+	}
+	
+	public static final Scene createAddBookCopyScreen() {
+		Scene scene = null;
+		try {
+			Parent root = FXMLLoader.load(SceneFactory.class.getResource(ADD_BOOK_COPY_SCREEN_FILE));
+			scene = new Scene(root, 590, 350);
 		} catch (IOException e) {
 			e.printStackTrace();
 		}

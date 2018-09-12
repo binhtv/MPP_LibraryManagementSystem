@@ -8,7 +8,8 @@ public enum Messages {
 	INPUT_NUM_OF_COPY("Please input number of copy!"),
 	INPUT_USER_NAME("Please input user name!"),
 	INPUT_PASSWORD("Please input password!"),
-	INPUT_CREATENEWMEMBER("Do you want to create a new member?"),	
+	INPUT_CREATENEWMEMBER("Do you want to create a new member?"),
+	INPUT_NOT_NUMBER("Please input a number!"),	
 	
 	//NOT EXISTS MESSAGES
 	NOT_EXIST_ISBN("ISBN does not exist."),
@@ -26,7 +27,8 @@ public enum Messages {
 	TITLE_LOGIN("Please Login"),
 	TITLE_MAIN_SCREEN("Welcome To Library Management System"),
 	TITLE_ADD_NEW_MEMBER("Add new member"),
-	TITLE_ADD_CHECKOUT("Checkout Books"),;
+	TITLE_ADD_CHECKOUT("Checkout Books"),
+	TITLE_ADD_BOOK_COPY("Add book copy");
 	
 	private String value;
 	
