@@ -16,8 +16,8 @@ public class Periodical extends PaperItem {
 	private String id;
 	private List<PeriodicalCopy> copies;
 	
-	public Periodical(String id, String title, boolean available, int borrowDay) {
-		super(title, available, borrowDay);
+	public Periodical(String id, String title,int borrowDay) {
+		super(title, borrowDay);
 		this.id = id;
 		this.copies = new ArrayList<>();
 	}

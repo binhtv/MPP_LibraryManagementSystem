@@ -18,8 +18,8 @@ public class Book extends PaperItem {
 	private List<Author> authors;
 	private List<BookCopy> copies;
 
-	public Book(String ISBN, String title, boolean available, int borrowDay) {
-		super(title, available, borrowDay);
+	public Book(String ISBN, String title, int borrowDay) {
+		super(title, borrowDay);
 		this.ISBN = ISBN;
 		this.authors = new ArrayList<>();
 		this.copies = new ArrayList<>();
@@ -62,5 +62,10 @@ public class Book extends PaperItem {
 
 	public void clearCopy() {
 		this.copies = new ArrayList<>();
+	}
+
+	@Override
+	public String getId() {
+		return ISBN;
 	}
 }

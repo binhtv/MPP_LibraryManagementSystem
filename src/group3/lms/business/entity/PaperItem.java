@@ -10,13 +10,11 @@ public abstract class PaperItem implements Borrowable {
 	private static final long serialVersionUID = 5527918550354145779L;
 	
 	private String title;
-	private boolean available;
 	private int borrowDay;
 	
-	public PaperItem(String title, boolean available, int borrowDay) {
-		this.setTitle(title);
-		this.setAvailable(available);
-		this.setBorrowDay(borrowDay);
+	public PaperItem(String title, int borrowDay) {
+		this.title = title;
+		this.borrowDay = borrowDay;
 	}
 
 	public String getTitle() {
@@ -25,14 +23,6 @@ public abstract class PaperItem implements Borrowable {
 
 	public void setTitle(String title) {
 		this.title = title;
-	}
-
-	public boolean isAvailable() {
-		return available;
-	}
-
-	public void setAvailable(boolean available) {
-		this.available = available;
 	}
 
 	public int getBorrowDay() {
@@ -45,4 +35,9 @@ public abstract class PaperItem implements Borrowable {
 	
 	public abstract List<? extends PaperItemCopy> getCopies();
 	public abstract PaperItemCopy getAvailableCopy();
+	public abstract String getId();
+	@Override
+	public String toString() {
+		return getId() + "#" + title;
+	}
 }

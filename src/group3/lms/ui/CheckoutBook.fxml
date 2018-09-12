@@ -7,25 +7,30 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane prefHeight="805.0" prefWidth="565.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="group3.lms.ui.CheckoutBookController">
+<AnchorPane prefHeight="658.0" prefWidth="512.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="group3.lms.ui.CheckoutBookController">
    <children>
-      <ImageView fitHeight="805.0" fitWidth="570.0">
+      <ImageView fitHeight="655.0" fitWidth="506.0" layoutX="3.0" layoutY="2.0">
          <image>
             <Image url="@../resources/CheckoutBookScreen.png" />
          </image>
       </ImageView>
-      <TextField fx:id="txtMemberID" layoutX="209.0" layoutY="69.0" prefHeight="25.0" prefWidth="249.0" />
-      <TextField fx:id="txtID" layoutX="209.0" layoutY="114.0" prefHeight="25.0" prefWidth="249.0" />
-      <Button fx:id="btnCheckout" layoutX="209.0" layoutY="159.0" mnemonicParsing="false" onAction="#clickCheckout" prefHeight="38.0" prefWidth="140.0" text="Checkout">
+      <TextField fx:id="txtMemberID" layoutX="176.0" layoutY="80.0" prefHeight="27.0" prefWidth="182.0" />
+      <TextField fx:id="txtID" layoutX="177.0" layoutY="129.0" prefHeight="28.0" prefWidth="182.0" />
+      <Button fx:id="btnCheckout" layoutX="175.0" layoutY="180.0" mnemonicParsing="false" onAction="#clickCheckout" prefHeight="41.0" prefWidth="117.0" text="Checkout">
          <font>
             <Font name="System Bold" size="14.0" />
          </font>
       </Button>
-      <TableView layoutX="11.0" layoutY="298.0" prefHeight="491.0" prefWidth="548.0">
-        <columns>
-          <TableColumn prefWidth="75.0" text="C1" />
-          <TableColumn prefWidth="75.0" text="C2" />
-        </columns>
-      </TableView>
+      <TableView fx:id="table" layoutX="14.0" layoutY="315.0" prefHeight="342.0" prefWidth="485.0" />
+      <Button fx:id="btnCancel" layoutX="308.0" layoutY="181.0" mnemonicParsing="false" onAction="#clickCancel" prefHeight="41.0" prefWidth="111.0" style="-fx-background-color: d9534f;" text="Cancel" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="14.0" />
+         </font>
+      </Button>
+      <Button fx:id="btnAdd" layoutX="373.0" layoutY="129.0" mnemonicParsing="false" onAction="#addItem" prefHeight="28.0" prefWidth="52.0" style="-fx-background-color: #007bff;" text="Add" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="14.0" />
+         </font>
+      </Button>
    </children>
 </AnchorPane>

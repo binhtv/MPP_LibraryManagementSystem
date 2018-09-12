@@ -71,7 +71,7 @@ public final class SceneFactory {
 		Scene scene = null;
 		try {
 			Parent root = FXMLLoader.load(SceneFactory.class.getResource(CHECKOUTBOOK_SCREEN_FILE));
-			scene = new Scene(root, 570, 805);
+			scene = new Scene(root, 512, 658);
 		} catch (IOException e) {
 			e.printStackTrace();
 		}

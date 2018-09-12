@@ -17,6 +17,7 @@ public enum Messages {
 	
 	//NOT AVAILABLE
 	NOT_AVAILABLE_COPYBOOK("Copy books or periodicals are not available."),
+	CANNOT_BORROW_SAME_COPY("You cannot borrow the same book."),
 	
 	//INCORRECT MESSAGES
 	INCORRECT_USER_PASS("User name or Password is incorrect."),
@@ -28,7 +29,8 @@ public enum Messages {
 	TITLE_MAIN_SCREEN("Welcome To Library Management System"),
 	TITLE_ADD_NEW_MEMBER("Add new member"),
 	TITLE_ADD_CHECKOUT("Checkout Books"),
-	TITLE_ADD_BOOK_COPY("Add book copy");
+	TITLE_ADD_BOOK_COPY("Add book copy"),
+	CHECKOUT_BOOK_SUCCESS("Checkout success for member %s, ID: %s, %s books\n%s");
 	
 	private String value;
 	

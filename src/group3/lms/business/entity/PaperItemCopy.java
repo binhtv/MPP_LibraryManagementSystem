@@ -14,6 +14,7 @@ public abstract class PaperItemCopy implements Serializable {
 	 */
 	private static final long serialVersionUID = -2899569520830018307L;
 	protected int copyID;
+	private boolean temporaryLock;
 	protected PaperItem paperItem;
 	protected CheckoutEntry ce;
 
@@ -21,6 +22,7 @@ public abstract class PaperItemCopy implements Serializable {
 		copyID = copy;
 		this.paperItem = paperItem;
 		this.ce = null;
+		this.temporaryLock = false;
 	}
 
 	public int getCopyID() {
@@ -39,5 +41,17 @@ public abstract class PaperItemCopy implements Serializable {
 
 	public void setCe(CheckoutEntry ce) {
 		this.ce = ce;
+	}
+
+	public boolean isLocked() {
+		return temporaryLock;
+	}
+
+	public void lock() {
+		this.temporaryLock = true;
+	}
+	
+	public void unlock() {
+		this.temporaryLock = false;
 	}
 }

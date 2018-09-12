@@ -8,7 +8,7 @@ import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 
-public class JavaObjectInputOutputStreamExample {
+public class DummyDataGenerator {
 
 	public static final String USER_DIR = System.getProperty("user.dir")
 			+ "/src/group3/lms/dataaccess/storage/users.txt";
@@ -81,7 +81,7 @@ public class JavaObjectInputOutputStreamExample {
 	}
 
 	public static List<Book> createBooks() {
-		Book b1 = new Book("BOOK1", "Java Programing", true, 21);
+		Book b1 = new Book("BOOK1", "Java Programing", 21);
 		Author author = new Author("John", "Lerm", "38283923", "Java Sun Sertificate",
 				"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.");
 		Author author1 = new Author("KHE", "MEME", "38283923", "J#",
@@ -95,7 +95,7 @@ public class JavaObjectInputOutputStreamExample {
 		b1.addCopy(copy2);
 		b1.addCopy(copy3);
 
-		Book b2 = new Book("BOOK2", "C++ Programing", true, 21);
+		Book b2 = new Book("BOOK2", "C++ Programing", 21);
 		Author author2 = new Author("John", "Lerm", "38283923", "C++",
 				"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.");
 		b2.addAuthor(author2);
@@ -106,14 +106,14 @@ public class JavaObjectInputOutputStreamExample {
 		b2.addCopy(copy5);
 		b2.addCopy(copy6);
 
-		Book b3 = new Book("BOOK3", "C# Programing", true, 7);
+		Book b3 = new Book("BOOK3", "C# Programing", 7);
 		Author author3 = new Author("Author 3", "Jla", "38283923", "C#",
 				"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.");
 		b3.addAuthor(author3);
 		BookCopy copy7 = new BookCopy(b3, 1);
 		b3.addCopy(copy7);
 
-		Book b4 = new Book("BOOK4", "PHP Programing", true, 7);
+		Book b4 = new Book("BOOK4", "PHP Programing", 7);
 		Author author4 = new Author("Author 4", "Lerm", "38283923", "PHP",
 				"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.");
 		b4.addAuthor(author4);
@@ -129,25 +129,25 @@ public class JavaObjectInputOutputStreamExample {
 	}
 
 	public static List<Periodical> createPeriodicals() {
-		Periodical b1 = new Periodical("P1", "New york time", true, 21);
+		Periodical b1 = new Periodical("P1", "New york time", 21);
 		PeriodicalCopy copy1 = new PeriodicalCopy(b1, 1);
 		PeriodicalCopy copy2 = new PeriodicalCopy(b1, 2);
 		b1.addCopy(copy1);
 		b1.addCopy(copy2);
 
-		Periodical b2 = new Periodical("P2", "Guradian", true, 21);
+		Periodical b2 = new Periodical("P2", "Guradian", 21);
 		PeriodicalCopy copy3 = new PeriodicalCopy(b2, 1);
 		PeriodicalCopy copy4 = new PeriodicalCopy(b2, 2);
 		b2.addCopy(copy3);
 		b2.addCopy(copy4);
 
-		Periodical b3 = new Periodical("P3", "VnExpress", true, 7);
+		Periodical b3 = new Periodical("P3", "VnExpress", 7);
 		PeriodicalCopy copy5 = new PeriodicalCopy(b3, 1);
 		PeriodicalCopy copy6 = new PeriodicalCopy(b3, 2);
 		b3.addCopy(copy5);
 		b3.addCopy(copy6);
 
-		Periodical b4 = new Periodical("P4", "Tuoi Tre", true, 7);
+		Periodical b4 = new Periodical("P4", "Tuoi Tre", 7);
 		PeriodicalCopy copy7 = new PeriodicalCopy(b4, 1);
 		PeriodicalCopy copy8 = new PeriodicalCopy(b4, 2);
 		b3.addCopy(copy7);
@@ -178,23 +178,26 @@ public class JavaObjectInputOutputStreamExample {
 			outputUser.writeObject(users);
 			outputUser.close();
 			
-			FileOutputStream fosBook = new FileOutputStream(BOOK_DIR);
-			List<Book> books = createBooks();
-			ObjectOutputStream outputBook = new ObjectOutputStream(fosBook);
-			outputBook.writeObject(books);
-			outputBook.close();
 			
-			FileOutputStream fosPeriodical = new FileOutputStream(PERIODICAL_DIR);
+			
+			List<Book> books = createBooks();
 			List<Periodical> periodicals = createPeriodicals();
-			ObjectOutputStream outputPeriodical = new ObjectOutputStream(fosPeriodical);
-			outputPeriodical.writeObject(periodicals);
-			outputPeriodical.close();
 			
 			FileOutputStream fosMembers = new FileOutputStream(MEMBER_DIR);
 			List<Member> members = createMembers(books, periodicals);
 			ObjectOutputStream outputMember = new ObjectOutputStream(fosMembers);
 			outputMember.writeObject(members);
 			outputMember.close();
+			
+			FileOutputStream fosBook = new FileOutputStream(BOOK_DIR);
+			ObjectOutputStream outputBook = new ObjectOutputStream(fosBook);
+			outputBook.writeObject(books);
+			outputBook.close();
+			
+			FileOutputStream fosPeriodical = new FileOutputStream(PERIODICAL_DIR);
+			ObjectOutputStream outputPeriodical = new ObjectOutputStream(fosPeriodical);
+			outputPeriodical.writeObject(periodicals);
+			outputPeriodical.close();
 
 		} catch (FileNotFoundException e) {
 			e.printStackTrace();
