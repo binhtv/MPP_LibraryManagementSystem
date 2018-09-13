@@ -23,7 +23,7 @@ public class UserDao implements Dao {
 	
 	public User getUser(String userName) {
 		for(User u : users) {
-			if(userName.equals(u.getUserName().toLowerCase())) {
+			if(userName.equalsIgnoreCase(u.getUserName())) {
 				return u;
 			}
 		}

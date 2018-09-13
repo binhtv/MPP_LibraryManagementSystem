@@ -113,7 +113,7 @@ public class CheckoutBookController {
 			return;
 		}
 
-		Member m = memberDao.getMember(txtMemberID.getText().toLowerCase());
+		Member m = memberDao.getMember(txtMemberID.getText());
 		if (m == null) {
 			Common.showMessage(AlertType.INFORMATION, Messages.NOT_EXIST_MEMBERID.getValue());
 			txtMemberID.requestFocus();
@@ -121,10 +121,10 @@ public class CheckoutBookController {
 		}
 
 		// get Book from stored file
-		Book b = bookDao.getBookByISBN(txtID.getText().toLowerCase());
+		Book b = bookDao.getBookByISBN(txtID.getText());
 		Periodical p = null;
 		if (b == null) {
-			p = periodicalDao.getPeriodicalById(txtID.getText().toLowerCase());
+			p = periodicalDao.getPeriodicalById(txtID.getText());
 		}
 
 		if (b == null && p == null) {
@@ -178,7 +178,7 @@ public class CheckoutBookController {
 			return;
 		}
 
-		Member m = memberDao.getMember(txtMemberID.getText().toLowerCase());
+		Member m = memberDao.getMember(txtMemberID.getText());
 		if (m == null) {
 			Common.showMessage(AlertType.INFORMATION, Messages.NOT_EXIST_MEMBERID.getValue());
 			txtMemberID.requestFocus();
@@ -215,9 +215,6 @@ public class CheckoutBookController {
 	}
 	
 	private void resetData() {
-//		da.read(memberDao);
-//		da.read(bookDao);
-//		da.read(periodicalDao);
 		data.clear();
 		txtID.clear();
 		txtMemberID.clear();

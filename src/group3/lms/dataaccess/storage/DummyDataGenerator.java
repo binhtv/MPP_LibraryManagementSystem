@@ -132,12 +132,25 @@ public class DummyDataGenerator {
 		b4.addAuthor(author4);
 		BookCopy copy8 = new BookCopy(b4, 1);
 		b4.addCopy(copy8);
+		
+		Book b5 = new Book("BOOK5", "The Supreme Awakening", 7);
+		Author author5 = new Author("Craig", "Pearson", "38283923", "Meditation",
+				"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.");
+		b5.addAuthor(author5);
+		
+		Book b6 = new Book("BOOK6", "Life and teaching of the masters of the Far East", 7);
+		Author author6 = new Author("Baird T.", "Spalding", "38283923", "Zen",
+				"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.");
+		b6.addAuthor(author6);
+		
 
 		List<Book> list = new ArrayList<>();
 		list.add(b1);
 		list.add(b2);
 		list.add(b3);
 		list.add(b4);
+		list.add(b5);
+		list.add(b6);
 		return list;
 	}
 

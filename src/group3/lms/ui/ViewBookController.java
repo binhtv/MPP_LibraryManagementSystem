@@ -128,11 +128,11 @@ public class ViewBookController {
 		}
 		
 		if(b == null) {
+			data.clear();
 			Common.showMessage(AlertType.INFORMATION, "Book cannot be found!");
 			txtID.requestFocus();
 			return;
 		}
-		data.clear();
 		for(PaperItemCopy pic : b.getCopies()) {
 			data.add(new PaperItemDTO(b, pic));
 		}

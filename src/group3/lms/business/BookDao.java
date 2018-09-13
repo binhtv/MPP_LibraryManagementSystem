@@ -24,7 +24,7 @@ public class BookDao extends PaperItemDao implements Dao {
 
 	public Book getBookByISBN(String isbn) {
 		for (Book u : books) {
-			if (isbn.equals(u.getISBN().toLowerCase())) {
+			if (isbn.equalsIgnoreCase(u.getISBN())) {
 				return u;
 			}
 		}
@@ -34,7 +34,7 @@ public class BookDao extends PaperItemDao implements Dao {
 
 	public void updateBookCopy(Book book) {
 		for (Book u : books) {
-			if (book.getISBN().equals(u.getISBN().toLowerCase())) {
+			if (book.getISBN().equalsIgnoreCase(u.getISBN())) {
 				List<BookCopy> copies = u.getCopies();
 				copies.clear();
 				copies.addAll(book.getCopies());

@@ -115,7 +115,7 @@ public class AddBookCopyController {
 	}
 
 	private PaperItem checkExistISBN() {
-		String id = txtISBN.getText().trim().toLowerCase();
+		String id = txtISBN.getText().trim();
 		if (txtISBN.getText() == null || id.equals("")) {
 			Common.showMessage(AlertType.INFORMATION, Messages.INPUT_ISBN.getValue());
 			return null;

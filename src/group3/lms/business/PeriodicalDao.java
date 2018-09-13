@@ -23,7 +23,7 @@ public class PeriodicalDao extends PaperItemDao implements Dao {
 
 	public Periodical getPeriodicalById(String id) {
 		for (Periodical p : periodicals) {
-			if (id.equals(p.getId().toLowerCase())) {
+			if (id.equalsIgnoreCase(p.getId())) {
 				return p;
 			}
 		}

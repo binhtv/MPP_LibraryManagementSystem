@@ -42,7 +42,7 @@ public class MemberDao implements Dao {
 
 	public Member getMember(String memberID) {
 		for (Member m : members) {
-			if (memberID.equals(m.getMemberId().toLowerCase())) {
+			if (memberID.equalsIgnoreCase(m.getMemberId())) {
 				return m;
 			}
 		}
