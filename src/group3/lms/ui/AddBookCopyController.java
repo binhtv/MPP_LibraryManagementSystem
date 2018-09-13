@@ -74,11 +74,12 @@ public class AddBookCopyController {
 			bk.addCopy(bk.newCopy());
 		}
 		try {
-			if(bk instanceof Book) {
+			if (bk instanceof Book) {
 				da.write(dao);
 			} else {
 				da.write(periodicalDao);
 			}
+			clearData();
 			Common.showMessage(AlertType.INFORMATION, Messages.COMMON_SUCCESS_MESSAGE.getValue());
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -98,14 +99,18 @@ public class AddBookCopyController {
 		}
 		txtNumOfCopy.setText(txtNumOfCopy.getText().trim());
 
+		boolean isError = false;
 		try {
-			Integer.parseInt(txtNumOfCopy.getText());
+			int num = Integer.parseInt(txtNumOfCopy.getText());
+			isError = num <= 0;
 		} catch (NumberFormatException ex) {
+			isError = true;
+		}
+		if (isError) {
 			Common.showMessage(AlertType.INFORMATION, Messages.INPUT_NOT_NUMBER.getValue());
 			txtNumOfCopy.requestFocus();
 			return null;
 		}
-
 		return bk;
 	}
 
@@ -127,6 +132,11 @@ public class AddBookCopyController {
 		}
 
 		return u;
+	}
+
+	private void clearData() {
+		txtISBN.clear();
+		txtNumOfCopy.clear();
 	}
 
 }

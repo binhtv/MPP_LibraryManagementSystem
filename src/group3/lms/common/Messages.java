@@ -9,7 +9,7 @@ public enum Messages {
 	INPUT_USER_NAME("User name is not allowed empty!"),
 	INPUT_PASSWORD("Password is not allowed empty!"),
 	INPUT_CREATENEWMEMBER("Do you want to create a new member?"),
-	INPUT_NOT_NUMBER("Please input a number!"),	
+	INPUT_NOT_NUMBER("Please input a greater than zero number!"),	
 	
 	//NOT EXISTS MESSAGES
 	NOT_EXIST_ISBN("ISBN does not exist."),

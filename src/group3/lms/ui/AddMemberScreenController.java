@@ -100,9 +100,19 @@ public class AddMemberScreenController {
 			txtZip.requestFocus();
 			return;
 		}
+		txtZip.setText(txtZip.getText().trim());
+		if (checkNumber(txtZip.getText())) {
+			txtZip.requestFocus();
+			return;
+		}
 		String textPhone = txtPhone.getText().trim();
 		if (textPhone == null || textPhone.equals("")) {
 			Common.showMessage(AlertType.INFORMATION, "Phone is not allowed empty!");
+			txtPhone.requestFocus();
+			return;
+		}
+		txtPhone.setText(txtPhone.getText().trim());
+		if (checkNumber(txtPhone.getText())) {
 			txtPhone.requestFocus();
 			return;
 		}
@@ -113,7 +123,7 @@ public class AddMemberScreenController {
 		newMember.setAddress(address);
 		dao.addMember(newMember);
 		try {
-			if(da.write(dao)) {
+			if (da.write(dao)) {
 				clearData();
 				Common.showMessage(AlertType.INFORMATION, Messages.COMMON_SUCCESS_MESSAGE.getValue());
 			} else {
@@ -147,7 +157,7 @@ public class AddMemberScreenController {
 			}
 		}
 	}
-	
+
 	private void clearData() {
 		txtMemberID.setText(dao.nextMemberId());
 		txtFName.clear();
@@ -158,5 +168,19 @@ public class AddMemberScreenController {
 		txtZip.clear();
 		txtPhone.clear();
 		txtFName.requestFocus();
+	}
+
+	private boolean checkNumber(String num) {
+		boolean re = false;
+		try {
+			int number = Integer.parseInt(num);
+			re = number <= 0;
+		} catch (NumberFormatException ex) {
+			re = true;
+		}
+		if (re)
+			Common.showMessage(AlertType.INFORMATION, Messages.INPUT_NOT_NUMBER.getValue());
+
+		return re;
 	}
 }
