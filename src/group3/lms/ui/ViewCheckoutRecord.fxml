@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.*?>
+<?import javafx.scene.text.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane prefHeight="426.0" prefWidth="511.0" style="-fx-background-color: #59B7B9;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="group3.lms.ui.ViewCheckOutController">
+	<children>
+		<TextField fx:id="txtMemberId" layoutX="144.0" layoutY="41.0" onAction="#txtMemberIdEnter" prefHeight="27.0" prefWidth="218.0" />
+      <Button fx:id="btnPrint" layoutX="144.0" layoutY="84.0" mnemonicParsing="false" onAction="#btnAddClickPrint" prefHeight="38.0" prefWidth="106.0" text="Print">
+         <font>
+            <Font name="System Bold" size="14.0" />
+         </font>
+      </Button>
+      <Button fx:id="btnCancel" cancelButton="true" layoutX="256.0" layoutY="84.0" mnemonicParsing="false" onAction="#clickCancel" prefHeight="38.0" prefWidth="106.0" style="-fx-background-color: #d9534f;" text="Cancel" textFill="WHITE">
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+         <font>
+            <Font name="System Bold" size="14.0" />
+         </font>
+      </Button>
+      <Label layoutX="46.0" layoutY="46.0" style="-fx-font-weight: bold;" text="Member Id" textFill="WHITE" />
+      <TextArea fx:id="txtAreaOutput" editable="false" layoutX="14.0" layoutY="141.0" prefHeight="271.0" prefWidth="484.0" />
+	</children>
+</AnchorPane>

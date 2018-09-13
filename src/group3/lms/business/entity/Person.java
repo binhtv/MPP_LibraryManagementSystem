@@ -13,9 +13,9 @@ public abstract class Person implements Serializable {
 	 */
 	private static final long serialVersionUID = 4116465093723272480L;
 	
-	private String firstName;
-	private String lastName;
-	private String phone;
+	protected String firstName;
+	protected String lastName;
+	protected String phone;
 	
 	public Person(String first, String last, String p) {
 		firstName = first;

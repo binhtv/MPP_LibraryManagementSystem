@@ -114,8 +114,8 @@ public class AddMemberScreenController {
 		dao.addMember(newMember);
 		try {
 			if(da.write(dao)) {
-				Common.showMessage(AlertType.INFORMATION, Messages.COMMON_SUCCESS_MESSAGE.getValue());
 				clearData();
+				Common.showMessage(AlertType.INFORMATION, Messages.COMMON_SUCCESS_MESSAGE.getValue());
 			} else {
 				Common.showMessage(AlertType.ERROR, Messages.COMMON_INTERNAL_ERROR.getValue());
 			}

@@ -47,4 +47,11 @@ public class CheckoutEntry implements Serializable {
 	public PaperItemCopy getBookCopy() {
 		return paperItemCopy;
 	}
+	
+	@Override
+	public String toString() {
+		StringBuilder bd = new StringBuilder();
+		bd.append(id).append("\t").append(checkoutDate).append("\t\t").append(dueDate).append("\t\t").append(paperItemCopy);
+		return bd.toString();
+	}
 }

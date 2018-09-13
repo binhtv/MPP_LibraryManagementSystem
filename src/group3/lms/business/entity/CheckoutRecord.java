@@ -39,4 +39,14 @@ public class CheckoutRecord implements Serializable {
 	public void addCheckoutEntry(CheckoutEntry entry) {
 		this.checkoutEntries.add(entry);
 	}
+	
+	@Override
+	public String toString() {
+		StringBuilder bd = new StringBuilder();
+		bd.append("ID\t").append("Checkout Date\t").append("Due Date\t\t\t").append("Item\n");
+		for(CheckoutEntry ce : checkoutEntries) {
+			bd.append(ce).append("\n");
+		}
+		return bd.toString();
+	}
 }

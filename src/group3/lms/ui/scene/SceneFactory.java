@@ -14,6 +14,7 @@ public final class SceneFactory {
 	private static final String ADD_MEMBER_SCREEN_FILE = "/group3/lms/ui/AddMemberScreen.fxml";
 	private static final String CHECKOUTBOOK_SCREEN_FILE = "/group3/lms/ui/CheckoutBook.fxml";
 	private static final String ADD_BOOK_COPY_SCREEN_FILE = "/group3/lms/ui/AddBookCopy.fxml";
+	private static final String PRINT_CHECKOUT_SCREEN_FILE = "/group3/lms/ui/ViewCheckoutRecord.fxml";
 
 	public static final Scene createLoginScreen() {
 		Scene scene = null;
@@ -35,16 +36,16 @@ public final class SceneFactory {
 			Parent root = FXMLLoader.load(SceneFactory.class.getResource(MAIN_SCREEN_FILE));
 			scene = new Scene(root, 496, 295);
 			for (Role r : roles) {
-				if(!r.can(Role.ADD_BOOK)) {
+				if (!r.can(Role.ADD_BOOK)) {
 					scene.lookup("#btnAddBk").setVisible(false);
 				}
-				if(!r.can(Role.ADD_BOOKCOPY)) {
+				if (!r.can(Role.ADD_BOOKCOPY)) {
 					scene.lookup("#btnAddBkCopy").setVisible(false);
 				}
-				if(!r.can(Role.ADD_MEMBER)) {
+				if (!r.can(Role.ADD_MEMBER)) {
 					scene.lookup("#btnNewMem").setVisible(false);
 				}
-				if(!r.can(Role.CHECK_OUT)) {
+				if (!r.can(Role.CHECK_OUT)) {
 					scene.lookup("#btnCheckoutBk").setVisible(false);
 				}
 			}
@@ -65,8 +66,8 @@ public final class SceneFactory {
 		}
 
 		return scene;
-	} 
-	
+	}
+
 	public static final Scene createCheckoutScreen() {
 		Scene scene = null;
 		try {
@@ -78,7 +79,7 @@ public final class SceneFactory {
 
 		return scene;
 	}
-	
+
 	public static final Scene createAddBookCopyScreen() {
 		Scene scene = null;
 		try {
@@ -90,4 +91,17 @@ public final class SceneFactory {
 
 		return scene;
 	}
+
+	public static final Scene createViewCheckoutRecordScreen() {
+		Scene scene = null;
+		try {
+			Parent root = FXMLLoader.load(SceneFactory.class.getResource(PRINT_CHECKOUT_SCREEN_FILE));
+			scene = new Scene(root, 511, 426);
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+
+		return scene;
+	}
+
 }

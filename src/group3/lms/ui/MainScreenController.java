@@ -37,6 +37,18 @@ public class MainScreenController {
 		MenuBar menuBar = new MenuBar();
 
 		Menu menu = new Menu("Application");
+		MenuItem printCheckOutMenu = new MenuItem();
+		Label lblprintCheckOutMenu = new Label("Print Checkout Record");
+		lblprintCheckOutMenu.setStyle("-fx-text-fill: blue;-fx-min-width:100;");
+		printCheckOutMenu.setGraphic(lblprintCheckOutMenu);
+		
+		printCheckOutMenu.setOnAction(evt -> {
+			Stage primaryStage = (Stage) rootContainer.getScene().getWindow();
+			primaryStage.setTitle(Messages.TITLE_PRINT_CHECKOUT.getValue());
+			primaryStage.setScene(SceneFactory.createViewCheckoutRecordScreen());
+		});
+		menu.getItems().add(printCheckOutMenu);
+		
 		MenuItem logoutMenu = new MenuItem();
 		Label logout = new Label("Logout");
 		logout.setStyle("-fx-text-fill: blue;-fx-min-width:100;");

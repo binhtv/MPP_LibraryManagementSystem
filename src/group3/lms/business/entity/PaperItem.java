@@ -40,6 +40,6 @@ public abstract class PaperItem implements Borrowable {
 	public abstract PaperItemCopy newCopy();
 	@Override
 	public String toString() {
-		return getId() + "#" + title;
+		return "[" + getId() + "  " + title +"]";
 	}
 }

@@ -197,7 +197,7 @@ public class CheckoutBookController {
 			da.write(periodicalDao);
 			String message = String.format(Messages.CHECKOUT_BOOK_SUCCESS.getValue(), m.getFirstName(), m.getMemberId(), items.size(), items);
 			Common.showMessage(AlertType.INFORMATION, message);
-			refreshData();
+			resetData();
 		} catch (Exception e) {
 			Common.showMessage(AlertType.ERROR, Messages.COMMON_INTERNAL_ERROR.getValue());
 			e.printStackTrace();
@@ -214,7 +214,7 @@ public class CheckoutBookController {
 		return false;
 	}
 	
-	private void refreshData() {
+	private void resetData() {
 //		da.read(memberDao);
 //		da.read(bookDao);
 //		da.read(periodicalDao);

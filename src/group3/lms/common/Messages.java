@@ -30,6 +30,7 @@ public enum Messages {
 	TITLE_ADD_NEW_MEMBER("Add new member"),
 	TITLE_ADD_CHECKOUT("Checkout Books"),
 	TITLE_ADD_BOOK_COPY("Add book copy"),
+	TITLE_PRINT_CHECKOUT("Checkout Record Lookup"),
 	CHECKOUT_BOOK_SUCCESS("Checkout success for member %s, ID: %s, %s books\n%s");
 	
 	private String value;

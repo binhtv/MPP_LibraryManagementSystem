@@ -46,4 +46,9 @@ public class Member extends Person {
 	public void addRecord(CheckoutRecord checkout) {
 		this.records.add(checkout);
 	}
+	
+	@Override
+	public String toString() {
+		return this.memberId + "\t" + this.firstName + " " + this.lastName + "\t\t" + phone;
+	}
 }
