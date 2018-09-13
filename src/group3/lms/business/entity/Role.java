@@ -18,6 +18,7 @@ public abstract class Role implements Serializable {
 	public static final String ADD_BOOKCOPY = "addBookCopy";
 	public static final String CHECK_OUT = "checkOut";
 	public static final String ADD_BOOK = "addBook";
+	public static final String VIEW_BOOK = "viewBook";
 	
 	protected List<String> permissions;
 	

@@ -19,8 +19,9 @@ public class CheckoutEntry implements Serializable {
 	private LocalDate checkoutDate;
 	private LocalDate dueDate;
 	private PaperItemCopy paperItemCopy;
+	private CheckoutRecord cr;
 	
-	public CheckoutEntry(int id, LocalDate checkoutDate, PaperItemCopy bc) throws Exception {
+	public CheckoutEntry(int id, LocalDate checkoutDate, PaperItemCopy bc, CheckoutRecord cr) throws Exception {
 		if(bc == null || bc.getCe() != null) {
 			throw new Exception("This item is not available.");
 		}
@@ -30,6 +31,7 @@ public class CheckoutEntry implements Serializable {
 		this.dueDate = checkoutDate.plusDays(bc.getPaperItem().getBorrowDay());
 		this.paperItemCopy = bc;
 		this.paperItemCopy.setCe(this);
+		this.cr = cr;
 	}
 	
 	public int getId() {
@@ -46,6 +48,10 @@ public class CheckoutEntry implements Serializable {
 
 	public PaperItemCopy getBookCopy() {
 		return paperItemCopy;
+	}
+	
+	public CheckoutRecord getCheckoutRecord() {
+		return this.cr;
 	}
 	
 	@Override

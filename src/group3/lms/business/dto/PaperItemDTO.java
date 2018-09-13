@@ -1,5 +1,10 @@
 package group3.lms.business.dto;
 
+import java.time.LocalDate;
+
+import group3.lms.business.entity.CheckoutEntry;
+import group3.lms.business.entity.CheckoutRecord;
+import group3.lms.business.entity.Member;
 import group3.lms.business.entity.PaperItem;
 import group3.lms.business.entity.PaperItemCopy;
 
@@ -34,5 +39,35 @@ public class PaperItemDTO {
 
 	public PaperItem getPi() {
 		return pi;
+	}
+	
+	public String getDueDate() {
+		CheckoutEntry ce = pic.getCe();
+		return ce == null ? "-" : ce.getDueDate().toString();
+	}
+	
+	public String getMember() {
+		CheckoutEntry ce = pic.getCe();
+		if(ce != null) {
+			CheckoutRecord cr = ce.getCheckoutRecord();
+			if(cr != null) {
+				Member m = cr.getMember();
+				return m.getMemberId() + " # " + m.getFirstName() + " " + m.getLastName(); 
+			}
+		}
+		
+		return "-";
+	}
+	
+	public String getDue() {
+		CheckoutEntry ce = pic.getCe();
+		if(ce != null) {
+			if(ce.getDueDate().isAfter(LocalDate.now())) {
+				return "NO";
+			} else {
+				return "YES";
+			}
+		}
+		return "-";
 	}
 }

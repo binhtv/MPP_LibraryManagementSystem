@@ -50,9 +50,9 @@ public class DummyDataGenerator {
 		cr.setMember(m1);
 		Book book1 = books.get(0);
 		Periodical p1 = periodicals.get(0);
-		CheckoutEntry ce = new CheckoutEntry(1, LocalDate.of(2018, 9, 10), book1.getCopies().get(0));
+		CheckoutEntry ce = new CheckoutEntry(1, LocalDate.of(2018, 9, 10), book1.getCopies().get(0), cr);
 		cr.addCheckoutEntry(ce);
-		CheckoutEntry ce1 = new CheckoutEntry(2, LocalDate.of(2018, 9, 10), p1.getCopies().get(0));
+		CheckoutEntry ce1 = new CheckoutEntry(2, LocalDate.of(2018, 9, 10), p1.getCopies().get(0), cr);
 		cr.addCheckoutEntry(ce1);
 
 		Member m2 = new Member("M2", "Thao", "Dao", "094483283");
@@ -60,9 +60,9 @@ public class DummyDataGenerator {
 		CheckoutRecord cr1 = new CheckoutRecord(m2);
 		Book book2 = books.get(1);
 		Periodical p2 = periodicals.get(1);
-		CheckoutEntry ce2 = new CheckoutEntry(3, LocalDate.of(2018, 9, 10), book2.getCopies().get(0));
+		CheckoutEntry ce2 = new CheckoutEntry(3, LocalDate.of(2018, 9, 10), book2.getCopies().get(0), cr1);
 		cr1.addCheckoutEntry(ce2);
-		CheckoutEntry ce3 = new CheckoutEntry(4, LocalDate.of(2018, 9, 10), p2.getCopies().get(0));
+		CheckoutEntry ce3 = new CheckoutEntry(4, LocalDate.of(2018, 9, 10), p2.getCopies().get(0), cr1);
 		cr1.addCheckoutEntry(ce3);
 		
 		Member m3 = new Member("M3", "Nga", "Duy", "094483283");
@@ -70,9 +70,9 @@ public class DummyDataGenerator {
 		CheckoutRecord cr2 = new CheckoutRecord(m3);
 		Book book3 = books.get(2);
 		Periodical p3 = periodicals.get(2);
-		CheckoutEntry ce4 = new CheckoutEntry(5, LocalDate.of(2018, 9, 10), book3.getCopies().get(0));
+		CheckoutEntry ce4 = new CheckoutEntry(5, LocalDate.of(2018, 9, 10), book3.getCopies().get(0), cr2);
 		cr2.addCheckoutEntry(ce4);
-		CheckoutEntry ce5 = new CheckoutEntry(6, LocalDate.of(2018, 9, 10), p3.getCopies().get(0));
+		CheckoutEntry ce5 = new CheckoutEntry(6, LocalDate.of(2018, 9, 10), p3.getCopies().get(0), cr2);
 		cr2.addCheckoutEntry(ce5);
 		
 		Member m4 = new Member("M4", "Thanh", "Tran", "094483283");
@@ -80,9 +80,9 @@ public class DummyDataGenerator {
 		CheckoutRecord cr3 = new CheckoutRecord(m4);
 		Book book4 = books.get(3);
 		Periodical p4 = periodicals.get(2);
-		CheckoutEntry ce6 = new CheckoutEntry(7, LocalDate.of(2018, 9, 10), book4.getCopies().get(0));
+		CheckoutEntry ce6 = new CheckoutEntry(7, LocalDate.of(2018, 9, 10), book4.getCopies().get(0), cr3);
 		cr3.addCheckoutEntry(ce6);
-		CheckoutEntry ce7 = new CheckoutEntry(8, LocalDate.of(2018, 9, 10), p4.getCopies().get(1));
+		CheckoutEntry ce7 = new CheckoutEntry(8, LocalDate.of(2018, 9, 10), p4.getCopies().get(1), cr3);
 		cr3.addCheckoutEntry(ce7);
 		
 		List<Member> list = new ArrayList<>();

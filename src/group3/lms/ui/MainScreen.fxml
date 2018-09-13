@@ -29,7 +29,7 @@
 				<Font size="21.0" />
 			</font>
 		</Button>
-		<Button fx:id="btnAddBk" layoutX="266.0" layoutY="183.0" mnemonicParsing="false" onAction="#btnAddBkClickMe" prefHeight="54.0" prefWidth="204.0" text="Add Book">
+		<Button fx:id="btnViewBk" layoutX="266.0" layoutY="183.0" mnemonicParsing="false" onAction="#btnViewBkClickMe" prefHeight="54.0" prefWidth="204.0" text="View Book">
 			<font>
 				<Font size="21.0" />
 			</font>

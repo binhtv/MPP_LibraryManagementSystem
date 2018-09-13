@@ -55,7 +55,7 @@ public class MemberDao implements Dao {
 		int i = 0;
 		for (PaperItem pi : pis) {
 			try {
-				cr.addCheckoutEntry(new CheckoutEntry(++i, LocalDate.now(), pi.getAvailableCopy()));
+				cr.addCheckoutEntry(new CheckoutEntry(++i, LocalDate.now(), pi.getAvailableCopy(), cr));
 			} catch (Exception e) {
 				e.printStackTrace();
 			}

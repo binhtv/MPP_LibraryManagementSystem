@@ -1,6 +1,5 @@
 package group3.lms.ui;
 
-import group3.lms.common.Common;
 import group3.lms.common.Messages;
 import group3.lms.ui.scene.SceneFactory;
 import javafx.application.Platform;
@@ -8,7 +7,6 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.geometry.Rectangle2D;
 import javafx.scene.Node;
-import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.Menu;
@@ -26,7 +24,7 @@ public class MainScreenController {
 	@FXML
 	private Button btnNewMem;
 	@FXML
-	private Button btnAddBk;
+	private Button btnViewBk;
 	@FXML
 	private Button btnAddBkCopy;
 	@FXML
@@ -85,8 +83,11 @@ public class MainScreenController {
 		setWindowToCenter(primaryStage);
 	}
 
-	public void btnAddBkClickMe(ActionEvent event) {
-		Common.showMessage(AlertType.INFORMATION, "add book");
+	public void btnViewBkClickMe(ActionEvent event) {
+		Stage primaryStage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+		primaryStage.setScene(SceneFactory.createViewBookScreen());
+		primaryStage.setTitle(Messages.TITLE_VIEW_BOOK.getValue());
+		setWindowToCenter(primaryStage);
 	}
 
 	public void btnAddBkCopyClickMe(ActionEvent event) {
