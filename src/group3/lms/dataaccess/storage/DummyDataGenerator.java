@@ -24,13 +24,13 @@ import group3.lms.business.entity.User;
 public class DummyDataGenerator {
 
 	public static final String USER_DIR = System.getProperty("user.dir")
-			+ "/src/group3/lms/dataaccess/storage/users.txt";
+			+ "/storage/users.txt";
 	public static final String MEMBER_DIR = System.getProperty("user.dir")
-			+ "/src/group3/lms/dataaccess/storage/members.txt";
+			+ "/storage/members.txt";
 	public static final String BOOK_DIR = System.getProperty("user.dir")
-			+ "/src/group3/lms/dataaccess/storage/books.txt";
+			+ "/storage/books.txt";
 	public static final String PERIODICAL_DIR = System.getProperty("user.dir")
-			+ "/src/group3/lms/dataaccess/storage/periodicals.txt";
+			+ "/storage/periodicals.txt";
 
 	public static List<User> createUsers() {
 		User u1 = new User("John", "Tran", "3938228383", "admin", "1234");
