@@ -12,7 +12,7 @@
 	<children>
 		<ImageView fitHeight="262.0" fitWidth="445.0" pickOnBounds="true" preserveRatio="true">
 			<image>
-				<Image url="@../resources/AddBookCopy.png" />
+				<Image url="@/group3/lms/resources/AddBookCopy.png" />
 			</image>
 		</ImageView>
 		<TextField fx:id="txtISBN" layoutX="168.0" layoutY="75.0" onAction="#txtISBNEnter" prefHeight="25.0" prefWidth="230.0" />

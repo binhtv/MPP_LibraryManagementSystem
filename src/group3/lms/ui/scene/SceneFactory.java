@@ -38,7 +38,7 @@ public final class SceneFactory {
 			scene = new Scene(root, 496, 295);
 			for (Role r : roles) {
 				if (!r.can(Role.ADD_BOOK)) {
-					scene.lookup("#btnAddBk").setVisible(false);
+//					scene.lookup("#btnAddBk").setVisible(false);
 				}
 				if (!r.can(Role.VIEW_BOOK)) {
 					scene.lookup("#btnViewBk").setVisible(false);

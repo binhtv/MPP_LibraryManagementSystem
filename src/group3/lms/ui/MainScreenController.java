@@ -36,7 +36,7 @@ public class MainScreenController {
 
 		Menu menu = new Menu("Application");
 		MenuItem printCheckOutMenu = new MenuItem();
-		Label lblprintCheckOutMenu = new Label("Print Checkout Record");
+		Label lblprintCheckOutMenu = new Label("View Checkout Record");
 		lblprintCheckOutMenu.setStyle("-fx-text-fill: blue;-fx-min-width:100;");
 		printCheckOutMenu.setGraphic(lblprintCheckOutMenu);
 		

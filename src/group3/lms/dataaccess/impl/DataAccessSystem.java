@@ -35,7 +35,7 @@ public class DataAccessSystem implements DataAccess {
 	
 	public static class ConnectManager {
 		private static final String OUTPUT_DIR = System.getProperty("user.dir") 
-				+ "/src/group3/lms/dataaccess/storage/%.txt";
+				+ "/storage/%.txt";
 		
 		public Object getData(String fileName) {
 			Object data = null;

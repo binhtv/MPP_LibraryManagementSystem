@@ -11,7 +11,7 @@
 	<children>
 		<ImageView fitHeight="314.0" fitWidth="496.0" pickOnBounds="true" preserveRatio="true">
 			<image>
-				<Image url="@../resources/main.jpg" />
+				<Image url="@/group3/lms/resources/main.jpg" />
 			</image>
 		</ImageView>
 		<Button fx:id="btnNewMem" layoutX="40.0" layoutY="78.0" mnemonicParsing="false" onAction="#btnNewMemClickMe" prefHeight="54.0" prefWidth="204.0" text="New Member">
