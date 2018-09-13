@@ -112,7 +112,7 @@ public final class SceneFactory {
 		Scene scene = null;
 		try {
 			Parent root = FXMLLoader.load(SceneFactory.class.getResource(VIEW_BOOK_SCREEN_FILE));
-			scene = new Scene(root, 796, 658);
+			scene = new Scene(root, 825, 658);
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
